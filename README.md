@@ -2,6 +2,13 @@
 
 This is my collection of dotfiles and configurations.
 
+**Note: I AM NOT RESPONSIBLE IF:**
+
+1. Your computer runs away from home.
+2. Your dog wakes up at 2:00am howling at your CPU.
+3. Your laptop becomes sentient and enslaves the human race.
+4. These scripts don't quite work right.
+
 ## Copy Dotfiles (optional)
 
 1. Run `brew/brew-install.sh`
