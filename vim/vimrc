@@ -36,44 +36,58 @@ filetype plugin indent on    " required
 
 " Custom Settings
 color desert
-set number
+set number                   " Enable line numbers
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set sw=2
 set expandtab
-set ai
-set si
+set autoindent
+set smartindent
 set gfn=Hack:h14
-set linespace=2
+set linespace=2             " Adds space in between lines
 
 set autoread                " Read changes to files outside vim
 set magic
 set showmatch               " Highlight matching brackets
 set incsearch
-set ignorecase
+set ignorecase              " Ignore case for searches by default
 set smartcase
 set scrolloff=2
 set clipboard=unnamed       " Use system keyboard
 
 let g:ctrlp_show_hidden=1
 let delimitMate_expand_cr = 1
-let g:indentLine_char = '┆'
+
+" Adds indentation guide like Sublime
+let g:indentLine_char = '|'
 let g:indentLine_enabled = 1
 
 " Custom Keybindings
+
+" Use Ctrl+<key> shortcuts for tabs
 nmap <C-S-tab> :tabprevious<cr>
 nmap <C-tab> :tabnext<cr>
 vmap <C-S-tab> :tabprevious<cr>
 vmap <C-tab> :tabnext<cr>
 imap <C-S-tab> <ESC>:tabprevious<cr>i
 imap <C-tab> <ESC>:tabnext<cr>i
+
+" Double-tap h to mimic <ESC>
 imap hh <ESC>
 vmap hh <ESC>
+
+" Open CtrlP with CMD+Shift+O, like IntelliJ
 map <D-O> :CtrlP<cr>
+
+" Open NERDTree with CMD+\, like VSCode
 map <D-\> :NERDTree<cr>
+
+" CMD+/ to toggle line comments
+" Requires nerdcommenter plugin
 map <D-/> \c<Space>
 
+" CMD+k/CMD+j to move lines up/down
 nnoremap <D-j> :m .+1<CR>==
 nnoremap <D-k> :m .-2<CR>==
 inoremap <D-j> <Esc>:m .+1<CR>==gi
@@ -81,6 +95,10 @@ inoremap <D-k> <Esc>:m .-2<CR>==gi
 vnoremap <D-j> :m '>+1<CR>gv=gv
 vnoremap <D-k> :m '<-2<CR>gv=gv
 
+" CMD+e to expand emmet snippet
+" Requires emmet plugin
 imap <D-e> <C-y>,
+
+" Tab/Shift+Tab to indent/unindent line
 nmap <tab> >>
 nmap <S-tab> <<
