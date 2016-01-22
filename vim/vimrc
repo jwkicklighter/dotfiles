@@ -1,32 +1,86 @@
-"syntax :on
-"
+" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-rails'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'dsawardekar/wordpress.vim'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'tyru/open-browser.vim'
+Plugin 'honza/vim-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'Raimondi/delimitMate.git'
+Plugin 'ervandew/supertab.git'
+Plugin 'Yggdroot/indentLine'
+Plugin 'scrooloose/nerdcommenter'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Custom Settings
 color desert
-set autoindent
 set number
-set tabstop=3
-set sw=3
-set gfn=Droid\ Sans\ Mono:h14
-filetype indent plugin on
-"
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set sw=2
+set expandtab
+set ai
+set si
+set gfn=Hack:h14
+set linespace=2
+
+set autoread                " Read changes to files outside vim
+set magic
+set showmatch               " Highlight matching brackets
 set incsearch
 set ignorecase
 set smartcase
 set scrolloff=2
-"
-" Map Buttons for Tab Control
+set clipboard=unnamed       " Use system keyboard
+
+let g:ctrlp_show_hidden=1
+let delimitMate_expand_cr = 1
+let g:indentLine_char = '┆'
+let g:indentLine_enabled = 1
+
+" Custom Keybindings
 nmap <C-S-tab> :tabprevious<cr>
 nmap <C-tab> :tabnext<cr>
+vmap <C-S-tab> :tabprevious<cr>
+vmap <C-tab> :tabnext<cr>
 imap <C-S-tab> <ESC>:tabprevious<cr>i
 imap <C-tab> <ESC>:tabnext<cr>i
-nmap <C-t> :tabnew<cr>
-imap <C-t> <ESC>:tabnew<cr>i
-map <C-w> :tabclose<cr>
-"
 imap hh <ESC>
-"
-" Plugins
-if filereadable('.vim/autoclose.vim')
-  source ~/.vim/autoclose.vim
-elseif filereadable('_vim/autoclose.vim')
-  source ~/_vim/autoclose.vim
-endif
+vmap hh <ESC>
+map <D-O> :CtrlP<cr>
+map <D-\> :NERDTree<cr>
+map <D-/> \c<Space>
+
+nnoremap <D-j> :m .+1<CR>==
+nnoremap <D-k> :m .-2<CR>==
+inoremap <D-j> <Esc>:m .+1<CR>==gi
+inoremap <D-k> <Esc>:m .-2<CR>==gi
+vnoremap <D-j> :m '>+1<CR>gv=gv
+vnoremap <D-k> :m '<-2<CR>gv=gv
+
+imap <D-e> <C-y>,
+nmap <tab> >>
+nmap <S-tab> <<
