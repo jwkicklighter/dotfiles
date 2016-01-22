@@ -16,7 +16,7 @@ ZSH_THEME="powerline"
 # git@github.com:zsh-users/zsh-history-substring-search.git     Searches history using typed text
 # git://github.com/zsh-users/zsh-syntax-highlighting.git        Highlights terminal commands
 
-plugins=(osx git git-flow git-extras github ruby rvm rails sublime wd bundler cap docker gem node npm bower gradle brew grunt zsh-syntax-highlighting brew zsh-history-substring-search)
+plugins=(osx git git-flow git-extras github ruby rvm rails sublime wd bundler cap docker gem node npm bower gradle brew grunt zsh-syntax-highlighting brew zsh-history-substring-search gulp)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,3 +103,7 @@ export GHC_DOT_APP="/Applications/ghc-7.10.2.app"
 if [ -d "$GHC_DOT_APP" ]; then
   export PATH="${HOME}/.local/bin:${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
+
+mkc () {
+    mkdir -p "$@" && cd "$@"
+}
