@@ -73,9 +73,9 @@ vmap <C-tab> :tabnext<cr>
 imap <C-S-tab> <ESC>:tabprevious<cr>i
 imap <C-tab> <ESC>:tabnext<cr>i
 
-" Double-tap h to mimic <ESC>
-imap hh <ESC>
-vmap hh <ESC>
+" tap bm to mimic <ESC>
+imap bm <ESC>
+vmap bm <ESC>
 
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 map <D-O> :CtrlP<cr>
