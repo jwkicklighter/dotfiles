@@ -53,7 +53,7 @@ set showmatch               " Highlight matching brackets
 set incsearch
 set ignorecase              " Ignore case for searches by default
 set smartcase
-set scrolloff=2
+set scrolloff=999           " Cause cursor to stay in middle of screen
 set clipboard=unnamed       " Use system keyboard
 
 let g:ctrlp_show_hidden=1
@@ -73,9 +73,9 @@ vmap <C-tab> :tabnext<cr>
 imap <C-S-tab> <ESC>:tabprevious<cr>i
 imap <C-tab> <ESC>:tabnext<cr>i
 
-" tap bm to mimic <ESC>
-imap bm <ESC>
-vmap bm <ESC>
+" tap mw to mimic <ESC>
+imap mw <ESC>
+vmap mw <ESC>
 
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 map <D-O> :CtrlP<cr>
@@ -102,3 +102,6 @@ imap <D-e> <C-y>,
 " Tab/Shift+Tab to indent/unindent line
 nmap <tab> >>
 nmap <S-tab> <<
+
+" \zz to toggle keeping cursor in middle of screen
+:nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
