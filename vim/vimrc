@@ -39,13 +39,14 @@ Plugin 'justinmk/vim-sneak'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'pbrisbin/vim-mkdir'
 Plugin 'reedes/vim-wordy'
-Plugin 'ryanoasis/vim-devicons'
+Plugin 'Lokaltog/vim-powerline'
 
 " Git Plugins
 Plugin 'mattn/webapi-vim'               " Needed for gist-vim
 Plugin 'mattn/gist-vim'
 Plugin 'gregsexton/gitv'
 Plugin 'motemen/git-vim'
+Plugin 'tpope/vim-fugitive'
 
 " Syntax Plugins
 Plugin 'SyntaxComplete'
@@ -60,6 +61,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'myhere/vim-nodejs-complete'
 Plugin 'elzr/vim-json'
 Plugin 'nginx.vim'
+Plugin 'tpope/vim-git'
 
 " Color Schemes
 Plugin 'jwkicklighter/vim-schemes'
@@ -81,7 +83,7 @@ filetype plugin indent on    " required
 
 
 " CUSTOM SETTINGS
-color vsdark
+color jwk-pastels
 set number                   " Enable line numbers
 set tabstop=2
 set shiftwidth=2
@@ -94,6 +96,8 @@ set gfn=Hack:h14
 set linespace=2             " Adds space in between lines
 set conceallevel=0          " Do not hide any quotes
 set nofoldenable            " disable folding
+set laststatus=2            " Always show the statusline
+set encoding=utf-8          " Necessary to show Unicode glyphs
 
 set autoread                " Read changes to files outside vim
 set magic
