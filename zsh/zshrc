@@ -3,11 +3,16 @@ export ZSH=$HOME/.oh-my-zsh
 export DOTFILES=$HOME/dotfiles
 export ZSH_PLUGINS=$DOTFILES/zsh-plugins
 
+# Source a .env file in the home directory to
+# avoid adding any API keys to git
+source $HOME/.env
+
 # Clone this theme: git@github.com:jwkicklighter/oh-my-zsh-powerline-theme.git
 # Copy powerline.zsh-theme into .oh-my-zsh/themes/ (install_in_omz.sh should do this)
 
 # Install and set terminal to 1 of these fonts: git@github.com:powerline/fonts.git
-# (I use "12pt Meslo LG M Regular for Powerline" for Regular & Non-ASCII in iTerm 2)
+# (Any Powerline font is actually fine, even if not from that repo)
+# (I use "12pt Hack" for Regular & Non-ASCII in iTerm2)
 autoload -U add-zsh-hook
 ZSH_THEME="powerline"
 
@@ -26,11 +31,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+ export EDITOR='vim'
+else
+ export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -45,6 +50,14 @@ alias l='ls -CF'
 alias c='clear'
 alias szshrc='source $HOME/.zshrc'
 alias td='wd'
+alias s='spotify play/pause'
+
+# Java
+javar () {
+  filename=$1
+  basename="${filename%.*}"
+  javac $filename && java $basename
+}
 
 # Vagrant
 alias vu='vagrant up'
@@ -53,6 +66,10 @@ alias vs='vagrant suspend'
 
 # Mac
 cleanopenwith='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
+
+# MacVim
+alias v='mvim --remote-tab-silent'
+alias vtab='mvim --remote-tab-silent'
 
 # Grunt
 alias grserve='grunt server'
