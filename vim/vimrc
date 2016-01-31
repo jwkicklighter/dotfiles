@@ -5,37 +5,83 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Let Vundle manage itself
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-rails'
+
+" Misc Plugins
+Plugin 'godlygeek/tabular'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
-Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
-Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'dsawardekar/wordpress.vim'
-Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'tyru/open-browser.vim'
-Plugin 'honza/vim-snippets'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'Raimondi/delimitMate.git'
-Plugin 'ervandew/supertab.git'
 Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'ap/vim-css-color'
+Plugin 'terryma/vim-expand-region'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'justinmk/vim-sneak'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'pbrisbin/vim-mkdir'
+Plugin 'reedes/vim-wordy'
+Plugin 'ryanoasis/vim-devicons'
+
+" Git Plugins
+Plugin 'mattn/webapi-vim'               " Needed for gist-vim
+Plugin 'mattn/gist-vim'
+Plugin 'gregsexton/gitv'
+Plugin 'motemen/git-vim'
+
+" Syntax Plugins
+Plugin 'SyntaxComplete'
+Plugin 'tpope/vim-rails'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'myhere/vim-nodejs-complete'
+Plugin 'elzr/vim-json'
+Plugin 'nginx.vim'
+
+" Color Schemes
+Plugin 'jwkicklighter/vim-schemes'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'antlypls/vim-colors-codeschool'
+Plugin 'wellsjo/wellsokai.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'xoria256.vim'
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'zeis/vim-kolor'
+
+" Disabled Plugins
+"Plugin 'ervandew/supertab.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Custom Settings
-color desert
+
+" CUSTOM SETTINGS
+color vsdark
 set number                   " Enable line numbers
 set tabstop=2
 set shiftwidth=2
@@ -46,6 +92,8 @@ set autoindent
 set smartindent
 set gfn=Hack:h14
 set linespace=2             " Adds space in between lines
+set conceallevel=0          " Do not hide any quotes
+set nofoldenable            " disable folding
 
 set autoread                " Read changes to files outside vim
 set magic
@@ -56,14 +104,29 @@ set smartcase
 set scrolloff=999           " Cause cursor to stay in middle of screen
 set clipboard=unnamed       " Use system keyboard
 
+" Some plugin setting
 let g:ctrlp_show_hidden=1
 let delimitMate_expand_cr = 1
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:vim_markdown_folding_disabled = 1
 
 " Adds indentation guide like Sublime
 let g:indentLine_char = '|'
 let g:indentLine_enabled = 1
 
-" Custom Keybindings
+" Gist Settings
+let g:gist_detect_filetype = 1          " Detect for gists filetype automatically
+let g:gist_open_browser_after_post = 1  " Open browser after creating gist
+let g:gist_show_privates = 1            " Let :Gist -l show private gists
+let g:gist_post_private = 1             " Set gists as private by default
+
+" NERDTree/NERDTreeTabs
+
+" CUSTOM KEYBINDINGS
+" Use <Space> to open prompt
+nmap <Space> :
 
 " Use Ctrl+<key> shortcuts for tabs
 nmap <C-S-tab> :tabprevious<cr>
@@ -74,14 +137,17 @@ imap <C-S-tab> <ESC>:tabprevious<cr>i
 imap <C-tab> <ESC>:tabnext<cr>i
 
 " tap mw to mimic <ESC>
-imap mw <ESC>
-vmap mw <ESC>
+imap hh <ESC>
+vmap hh <ESC>
 
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 map <D-O> :CtrlP<cr>
 
+" Duplicate line with CMD+D, like IntelliJ
+map <D-d> :t.<cr>
+
 " Open NERDTree with CMD+\, like VSCode
-map <D-\> :NERDTree<cr>
+map <D-\> :NERDTreeTabsToggle<cr>
 
 " CMD+/ to toggle line comments
 " Requires nerdcommenter plugin
@@ -98,10 +164,6 @@ vnoremap <D-k> :m '<-2<CR>gv=gv
 " CMD+e to expand emmet snippet
 " Requires emmet plugin
 imap <D-e> <C-y>,
-
-" Tab/Shift+Tab to indent/unindent line
-nmap <tab> >>
-nmap <S-tab> <<
 
 " \zz to toggle keeping cursor in middle of screen
 :nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
