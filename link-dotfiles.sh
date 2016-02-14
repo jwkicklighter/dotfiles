@@ -2,7 +2,7 @@
 #
 # Links dotfiles into the home directory
 
-DIRECTORIES=("vim" "zsh" "intellij")
+DIRECTORIES=(vim zsh intellij)
 
 for DIRECTORY in "${DIRECTORIES[@]}"; do
   for FILEPATH in $DIRECTORY/*; do
