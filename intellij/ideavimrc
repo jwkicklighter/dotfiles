@@ -1,0 +1,21 @@
+" CUSTOM SETTINGS
+set gfn=Hack:h14
+set linespace=2             " Adds space in between lines
+
+set showmatch               " Highlight matching brackets
+set incsearch
+set ignorecase              " Ignore case for searches by default
+set smartcase
+set scrolloff=999           " Cause cursor to stay in middle of screen
+set clipboard=unnamed       " Use system keyboard
+
+" CUSTOM KEYBINDINGS
+" Use <Space> to open prompt
+nmap <Space> :
+
+" tap hh to mimic <ESC>
+imap hh <ESC>
+vmap hh <ESC>
+
+" IntelliJ-specific settings
+map \r :action ReformatCode<CR>
