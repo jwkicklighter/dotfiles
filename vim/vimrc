@@ -40,6 +40,7 @@ Plugin 'tommcdo/vim-exchange'
 Plugin 'pbrisbin/vim-mkdir'
 Plugin 'reedes/vim-wordy'
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'ahw/vim-hooks'
 
 " Git Plugins
 Plugin 'mattn/webapi-vim'               " Needed for gist-vim
@@ -51,6 +52,9 @@ Plugin 'tpope/vim-fugitive'
 " Syntax Plugins
 Plugin 'SyntaxComplete'
 Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-endwise'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -80,6 +84,11 @@ Plugin 'zeis/vim-kolor'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+"let $PYTHONPATH='/usr/lib/python2.7/'
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
 
 
 " CUSTOM SETTINGS
@@ -115,6 +124,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:vim_markdown_folding_disabled = 1
+let b:delimitMate_expand_cr = 1
+
+" Auto-focus Tagbar when opened
+let g:tagbar_autofocus = 1
 
 " Adds indentation guide like Sublime
 let g:indentLine_char = '|'
@@ -146,6 +159,21 @@ vmap hh <ESC>
 
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 map <D-O> :CtrlP<cr>
+
+" Open CtrlPTag with CMD+Shift+B
+map <D-B> :CtrlPTag<cr>
+
+" Rebuild tags with \b
+nnoremap <Leader>b :execute '!ctags -R'<cr>
+
+" Open Tagbar with CMD+[
+map <D-[> :execute 'TagbarToggle'<cr>
+
+" Find current word with CtrlPFunky
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
+" Open Syntastic error window
+nnoremap <Leader>e :Errors<cr>
 
 " Duplicate line with CMD+D, like IntelliJ
 map <D-d> :t.<cr>
