@@ -13,18 +13,23 @@ binaries=(
   android-sdk
   ansible
   composer
+  ctags
   gcc
   git
   git-flow
+  heroku-toolbelt
   htop-osx
-  mackup
+  macvim
   node
-  python
+  postgresql
+  qt5
   ruby
   ruby-build
   sshfs
+  sslmate
   trash
   vagrant
+  vim
 )
 
 echo "installing binaries..."
