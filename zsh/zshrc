@@ -49,6 +49,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias c='clear'
 alias szshrc='source $HOME/.zshrc'
+alias vzshrc='$EDITOR $HOME/.zshrc'
 alias td='wd'
 alias s='spotify play/pause'
 
@@ -77,6 +78,9 @@ alias grserve='grunt server'
 # Git
 alias gs='git status'
 alias gf='git fetch'
+alias gff='git flow feature'
+alias gfh='git flow hotfix'
+alias gfr='git flow release'
 
 # Sublime Text
 alias st.='st .'
