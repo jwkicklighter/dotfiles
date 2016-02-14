@@ -9,19 +9,13 @@ This is my collection of dotfiles and configurations.
 3. Your laptop becomes sentient and enslaves the human race.
 4. These scripts don't quite work right.
 
-## Copy Dotfiles (optional)
+## Link Dotfiles (optional)
 
-1. Run `brew/brew-install.sh`
-2. Copy `bin` to your home directory
-3. Copy `vim/vimrc` to home directory as `.vimrc`
-4. Copy `vim/vim/` to home directory as `.vim/`
-5. Copy `zsh/zshrc` to home directory as `.zshrc`
+Run `link-dotfiles.sh`. This script will check for the default dotfiles and back them up if they exist. If you run the script after already having some of the files symlinked (e.g. to link a dotfile that has been added recently) it will not do anything to the symlink or backup that already exist.
 
-## Mackup (prefered)
+## Install homebrew and some helpful packages (optional)
 
-After having used this system once, backup all dotfiles and configs with Mackup using `mackup backup`. This requires Dropbox (or another supported file syncing app) to work.
-
-On a new machine, after running `brew-install.sh`, simply run `mackup restore`.
+Run `brew-install.sh`. If you are curious what binaries will be installed, check out the array in that file.
 
 ## Oh-My-ZSH
 
@@ -40,3 +34,7 @@ There is a modified version of the osx-for-hackers.sh script in `osx/` (original
 
 ## Sublime Package Syncing
 Run `sublime/link-sublime-osx.sh` to symlink the Sublime package files from Dropbox (install Dropbox & Sublime first)
+
+## Vimrc/Ideavimrc
+
+My .vimrc assumes that you have [Vundle](https://github.com/VundleVim/Vundle.vim) installed. The .ideavimrc is for the JetBrains IdeaVim plugin, and is read by any of their editors that have the plugin installed.
