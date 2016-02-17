@@ -93,29 +93,30 @@ filetype plugin indent on    " required
 
 " CUSTOM SETTINGS
 color jwk-pastels
-set number                   " Enable line numbers
+set number                       " Enable line numbers
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set sw=2
 set expandtab
 set autoindent
 set smartindent
 set gfn=Hack:h14
-set linespace=2             " Adds space in between lines
-set conceallevel=0          " Do not hide any quotes
-set nofoldenable            " disable folding
-set laststatus=2            " Always show the statusline
-set encoding=utf-8          " Necessary to show Unicode glyphs
+set linespace=2                  " Adds space in between lines
+set conceallevel=0               " Do not hide any quotes
+set nofoldenable                 " disable folding
+set laststatus=2                 " Always show the statusline
+set encoding=utf-8               " Necessary to show Unicode glyphs
 
-set autoread                " Read changes to files outside vim
+set autoread                     " Read changes to files outside vim
 set magic
-set showmatch               " Highlight matching brackets
+set showmatch                    " Highlight matching brackets
 set incsearch
-set ignorecase              " Ignore case for searches by default
+set ignorecase                   " Ignore case for searches by default
 set smartcase
-set scrolloff=999           " Cause cursor to stay in middle of screen
-set clipboard=unnamed       " Use system keyboard
+set scrolloff=999                " Cause cursor to stay in middle of screen
+set clipboard=unnamed            " Use system keyboard
+
+set backspace=indent,eol,start   " Fix backspace not deleting tabs, also make delimiteMate work
 
 " Some plugin setting
 let g:ctrlp_show_hidden=1
@@ -124,7 +125,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:vim_markdown_folding_disabled = 1
-let b:delimitMate_expand_cr = 1
 
 " Auto-focus Tagbar when opened
 let g:tagbar_autofocus = 1
