@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Misc Plugins
+Plugin 'Shougo/vimproc.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -67,6 +68,7 @@ Plugin 'elzr/vim-json'
 Plugin 'nginx.vim'
 Plugin 'tpope/vim-git'
 Plugin 'dag/vim2hs'
+Plugin 'eagletmt/ghcmod-vim'
 
 " Color Schemes
 Plugin 'jwkicklighter/vim-schemes'
