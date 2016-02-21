@@ -93,6 +93,9 @@ filetype plugin indent on    " required
 "python powerline_setup()
 "python del powerline_setup
 
+" AutoCMD stuff
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+
 
 " CUSTOM SETTINGS
 color jwk-pastels
