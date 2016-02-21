@@ -16,6 +16,8 @@ nmap <Space> :
 " tap hh to mimic <ESC>
 imap hh <ESC>
 vmap hh <ESC>
+imap jk <ESC>
+vmap jk <ESC>
 
 " IntelliJ-specific settings
 map \r :action ReformatCode<CR>

@@ -156,6 +156,8 @@ imap <C-tab> <ESC>:tabnext<cr>i
 " tap mw to mimic <ESC>
 imap hh <ESC>
 vmap hh <ESC>
+imap jk <ESC>
+vmap jk <ESC>
 
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 map <D-O> :CtrlP<cr>
