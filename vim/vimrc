@@ -66,6 +66,7 @@ Plugin 'myhere/vim-nodejs-complete'
 Plugin 'elzr/vim-json'
 Plugin 'nginx.vim'
 Plugin 'tpope/vim-git'
+Plugin 'dag/vim2hs'
 
 " Color Schemes
 Plugin 'jwkicklighter/vim-schemes'
@@ -158,6 +159,10 @@ imap hh <ESC>
 vmap hh <ESC>
 imap jk <ESC>
 vmap jk <ESC>
+
+" Haskell
+ vnoremap <buffer> <silent> <Leader>pf :PointFree<CR>
+ vnoremap <buffer> <silent> <Leader>PF :PointFree!<CR>
 
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 map <D-O> :CtrlP<cr>
