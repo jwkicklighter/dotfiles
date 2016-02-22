@@ -99,6 +99,7 @@ autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 " CUSTOM SETTINGS
 color jwk-pastels
+syntax on
 set number                       " Enable line numbers
 set tabstop=2
 set shiftwidth=2
