@@ -100,6 +100,7 @@ alias b2d='boot2docker'
 export DOCKER_HOST=tcp://192.168.59.103:2375
 
 # ALL the bins!
+export PATH="$HOME/sbin":$PATH
 export PATH="/usr/local/bin":$PATH
 export PATH=$PATH:"/usr/local/sbin"
 export PATH=$PATH:"/usr/bin"
