@@ -72,6 +72,10 @@ cleanopenwith='/System/Library/Frameworks/CoreServices.framework/Versions/A/Fram
 alias v='mvim --remote-tab-silent'
 alias vtab='mvim --remote-tab-silent'
 
+# Arch
+alias y='yaourt'
+alias xclip='xclip -selection clipboard'
+
 # Grunt
 alias grserve='grunt server'
 
