@@ -25,6 +25,8 @@ while getopts ":ah" opt; do
   esac
 done
 
+touch $HOME/.env
+
 for DIRECTORY in "${DIRECTORIES[@]}"; do
   for FILEPATH in $DIRECTORY/*; do
     FILENAME=`basename $FILEPATH`
