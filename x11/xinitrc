@@ -1,0 +1,4 @@
+setxkbmap -layout dvorak
+~/.fehbg
+xrdb ~/.Xresources
+exec xmonad

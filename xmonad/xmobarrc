@@ -1,0 +1,44 @@
+Config { 
+  font = "Hack:size=10:boldantialias=true"
+  , bgColor     = "black"
+  , fgColor     = "grey"
+  , position    = TopW L 100
+  , commands    = [
+    Run Weather "KSFB" [ "-t"
+                       , "<tempF>F"
+                       , "-L"
+                       , "65"
+                       , "-H"
+                       , "90"
+                       , "--normal"
+                       , "white"
+                       , "--high"
+                       , "red"
+                       , "--low"
+                       , "lightblue"
+                       ] 18000
+    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+    , Run Memory ["-t","Mem: <usedratio>%"] 10
+    , Run Date "%a %b %_d %l:%M" "date" 10
+    , Run StdinReader
+    , Run Battery      [ "--template" , "Batt: <acstatus>"
+                       , "--Low"      , "10"        -- units: %
+                       , "--High"     , "80"        -- units: %
+                       , "--low"      , "darkred"
+                       , "--normal"   , "darkorange"
+                       , "--high"     , "darkgreen"
+                       , "--"
+                        -- battery specific options
+                        -- discharging status
+                       , "-o"	, "<left>% (<timeleft>)"
+                        -- AC "on" status
+                       , "-O"	, "<fc=#dAA520>Charging</fc>"
+                        -- charged status
+                       , "-i"	, "<fc=#006000>Charged</fc>"
+                       ] 50
+    ]
+, sepChar = "%"
+  , alignSep = "}{"
+  , template = "%StdinReader% }{ %cpu% | %memory% | <fc=#ee9a00>%date%</fc> | %battery%"
+  }

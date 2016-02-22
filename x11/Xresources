@@ -1,0 +1,42 @@
+*font:xft:Hack:style=Regular:size=10
+*scrollBar: false
+
+! *foreground: #edbdd2
+! *background: #282828
+
+! special
+*.foreground:   #ffffff
+*.background:   #1f1f1f
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #25292a
+*.color8:       #25292a
+
+! red
+*.color1:       #f25a62
+*.color9:       #f25a63
+
+! green
+*.color2:       #39c48e
+*.color10:      #39c48e
+
+! yellow
+*.color3:       #e2a802
+*.color11:      #e2a802
+
+! blue
+*.color4:       #3f7dde
+*.color12:      #3f7dde
+
+! magenta
+*.color5:       #797fd4
+*.color13:      #797fd4
+
+! cyan
+*.color6:       #00c0c3
+*.color14:      #00bfc3
+
+! white
+*.color7:       #eaf2f4
+*.color15:      #ebf3f4
