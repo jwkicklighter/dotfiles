@@ -6,6 +6,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import System.IO
+import Graphics.X11.ExtraTypes.XF86
 
 myTerminal           = "urxvt"
 myNormalBorderColor  = "#cccccc"
@@ -37,6 +38,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
   -- launch a terminal
   [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+
+  -- Backlight Keys
+  , ((modm, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 10")
+  , ((modm, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 10")
+
+  -- Keyboard Light Keys
+  , ((modm, xF86XK_KbdBrightnessUp), spawn "kb-light +")
+  , ((modm, xF86XK_KbdBrightnessDown), spawn "kb-light -")
 
   -- Rotate through the available layout algorithms
   , ((modm, xK_space ), sendMessage NextLayout)
