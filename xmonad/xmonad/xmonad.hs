@@ -38,11 +38,19 @@ main = do
       , handleEventHook    = mconcat 
                            [ docksEventHook
                            , handleEventHook defaultConfig ]
-      , logHook            = dynamicLogWithPP xmobarPP
-        { ppOutput = hPutStrLn xmproc
-        , ppTitle = xmobarColor "green" "" . shorten 50
-        }
+      , logHook            = dynamicLogWithPP myPP { ppOutput = hPutStrLn xmproc }
       }
+
+myPP = defaultPP { ppHiddenNoWindows = xmobarColor  myAlmostDarkGray  myGreen      . showNamedWorkspaces
+                 , ppHidden          = xmobarColor  myDarkGray        myGreen      . pad . pad
+                 , ppCurrent         = xmobarColor  "white"           myBlue       . pad . pad
+                 , ppTitle           = xmobarColor  myDarkGray        myLightGray  . pad . pad . shorten 70
+                 , ppSep             = ""
+                 , ppOrder           = \(ws:_:t:_) -> [ws,t]
+                 }
+  where showNamedWorkspaces wsId = if any (`elem` wsId) ['a'..'z']
+                                     then pad $ pad wsId
+                                     else ""
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
