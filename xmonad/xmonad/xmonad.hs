@@ -23,6 +23,7 @@ main = do
       , focusedBorderColor = myFocusedBorderColor
       , keys               = myKeys
       , workspaces         = myWorkspaces
+      , focusFollowsMouse  = False
       , manageHook         = manageDocks <+> manageHook defaultConfig
       , layoutHook         = avoidStruts myLayout
       , handleEventHook    = mconcat 
