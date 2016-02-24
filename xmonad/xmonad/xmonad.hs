@@ -9,10 +9,19 @@ import System.IO
 import Graphics.X11.ExtraTypes.XF86
 
 myTerminal           = "urxvt"
-myNormalBorderColor  = "#cccccc"
-myFocusedBorderColor = "#e2a802"
-myWorkspaces         = ["web","shell","app","msg"]
+myNormalBorderColor  = myLightGray
+myFocusedBorderColor = myYellow
+myWorkspaces         = ["web","shell","msg","app"]
 myWindowSpacing      = 5
+
+-- Color Codes
+myYellow         = "#e2a802"
+myGreen          = "#39c48e"
+myGray           = "#999999"
+myAlmostDarkGray = "#4f4f4f"
+myDarkGray       = "#1f1f1f"
+myLightGray      = "#cccccc"
+myBlue           = "#3f7dde"
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar /home/lnx/.xmobarrc"
