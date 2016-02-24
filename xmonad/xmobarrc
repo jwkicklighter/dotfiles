@@ -1,5 +1,5 @@
 Config { 
-  font = "Hack:size=10:boldantialias=true"
+  font = "xft:SFNS Display:size=12:boldantialias=true"
   , bgColor     = "black"
   , fgColor     = "grey"
   , position    = TopW L 100
