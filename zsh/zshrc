@@ -85,6 +85,7 @@ alias gf='git fetch'
 alias gff='git flow feature'
 alias gfh='git flow hotfix'
 alias gfr='git flow release'
+alias gl='git log --all --graph --decorate --oneline --simplify-by-decoration'
 
 # Sublime Text
 alias st.='st .'
@@ -109,6 +110,7 @@ export PATH=$PATH:"/bin"
 export PATH=$PATH:"/sbin"
 export PATH=$PATH:"$HOME/bin"
 export PATH=$PATH:"$HOME/bin/sbt"
+export PATH=$PATH:"$HOME/.cabal/bin"
 
 #Mono
 export MONO_GAC_PREFIX="/usr/local"
@@ -117,8 +119,8 @@ export MONO_GAC_PREFIX="/usr/local"
 export PATH=$PATH:"/usr/local/share/npm/bin"
 
 # Ruby
-export PATH=$PATH:"$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+#export PATH=$PATH:"$HOME/.rvm/bin"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -132,4 +134,20 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 
 mkc () {
     mkdir -p "$@" && cd "$@"
+}
+
+# Go Forward in Git history
+# Usage: gofwd v1.2.7
+gofwd() {
+  git checkout `git rev-list --topo-order HEAD.."$*" | tail -1`
+}
+
+# Go Backward in Git history
+# Usage: goback
+alias goback='git checkout HEAD~'
+
+function t() {
+  # Defaults to 3 levels deep, do more with `t 5` or `t 1`
+  # pass additional args after
+  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
 }
