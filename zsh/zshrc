@@ -122,10 +122,6 @@ export PATH=$PATH:"/usr/local/share/npm/bin"
 #export PATH=$PATH:"$HOME/.rvm/bin"
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
 # Add GHC 7.10.2 to the PATH, via https://ghcformacosx.github.io/
 #export GHC_DOT_APP="/Applications/ghc-7.10.2.app"
 #if [ -d "$GHC_DOT_APP" ]; then
