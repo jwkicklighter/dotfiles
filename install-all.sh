@@ -4,11 +4,12 @@
 
 SCRIPT_DIR="$(dirname $0)"
 
-# Link dotfiles
-$SCRIPT_DIR/link-dotfiles.sh
-
 # Install oh-my-zsh
-sh -c $(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)
+OMZ_FILE=/tmp/oh-my-zsh-install.sh
+curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > $OMZ_FILE
+chmod +x $OMZ_FILE
+$OMZ_FILE
+rm $OMZ_FILE
 
 # Link powerline theme
 $SCRIPT_DIR/link-powerline.sh
@@ -20,3 +21,6 @@ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zs
 # Install Vundle
 mkdir -p $HOME/.vim/bundle/Vundle.vim
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+
+# Link dotfiles
+$SCRIPT_DIR/link-dotfiles.sh
