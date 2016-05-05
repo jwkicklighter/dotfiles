@@ -14,10 +14,8 @@ set clipboard=unnamed       " Use system keyboard
 nmap <Space> :
 
 " tap hh to mimic <ESC>
-imap hh <ESC>
-vmap hh <ESC>
-imap jk <ESC>
-vmap jk <ESC>
+imap <C-w> <ESC>
+vmap <C-w> <ESC>
 
 " IntelliJ-specific settings
 map \r :action ReformatCode<CR>
