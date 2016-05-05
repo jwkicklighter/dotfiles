@@ -10,11 +10,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Misc Plugins
 Plugin 'Shougo/vimproc.vim'
-Plugin 'godlygeek/tabular'
+"Plugin 'godlygeek/tabular'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
@@ -23,7 +23,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'dsawardekar/wordpress.vim'
-Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'tyru/open-browser.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -41,7 +41,7 @@ Plugin 'tommcdo/vim-exchange'
 Plugin 'pbrisbin/vim-mkdir'
 Plugin 'reedes/vim-wordy'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'ahw/vim-hooks'
+"Plugin 'ahw/vim-hooks'
 
 " Git Plugins
 Plugin 'mattn/webapi-vim'               " Needed for gist-vim
@@ -151,20 +151,19 @@ let g:gist_post_private = 1             " Set gists as private by default
 " CUSTOM KEYBINDINGS
 " Use <Space> to open prompt
 nmap <Space> :
+vmap <Space> :
 
 " Use Ctrl+<key> shortcuts for tabs
 nmap <C-S-tab> :tabprevious<cr>
 nmap <C-tab> :tabnext<cr>
 vmap <C-S-tab> :tabprevious<cr>
 vmap <C-tab> :tabnext<cr>
-imap <C-S-tab> <ESC>:tabprevious<cr>i
-imap <C-tab> <ESC>:tabnext<cr>i
+imap <C-S-tab> <C-o>:tabprevious<cr>
+imap <C-tab> <C-o>:tabnext<cr>
 
-" tap mw to mimic <ESC>
-imap hh <ESC>
-vmap hh <ESC>
-imap jk <ESC>
-vmap jk <ESC>
+" Use Ctrl+m for <ESC>
+imap <C-w> <ESC>
+vmap <C-w> <ESC>
 
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 map <D-O> :CtrlP<cr>
