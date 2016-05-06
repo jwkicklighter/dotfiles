@@ -81,12 +81,10 @@ function setprompts {
       POWERLINE_SEC1_FG=%F{green}
   fi
   POWERLINE_SEC1_TXT=%F{black}
-  if [ "$POWERLINE_DETECT_SSH" != "" ]; then
-    if [ -n "$SSH_CLIENT" ]; then
-      POWERLINE_SEC1_BG=%K{red}
-      POWERLINE_SEC1_FG=%F{red}
-      POWERLINE_SEC1_TXT=%F{white}
-    fi
+  if [ -n "$SSH_CLIENT" ]; then
+    POWERLINE_SEC1_BG=%K{red}
+    POWERLINE_SEC1_FG=%F{red}
+    POWERLINE_SEC1_TXT=%F{white}
   fi
   PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME %k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} "$_prompt_sorin_pwd"%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
 
