@@ -52,6 +52,7 @@ alias szshrc='source $HOME/.zshrc'
 alias vzshrc='$EDITOR $HOME/.zshrc'
 alias td='wd'
 alias s='spotify play/pause'
+alias sup='sudo -E zsh'
 
 # Java
 javar () {
