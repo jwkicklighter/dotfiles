@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Misc Plugins
+Plugin 'rking/ag.vim'
 Plugin 'Shougo/vimproc.vim'
 "Plugin 'godlygeek/tabular'
 Plugin 'ctrlpvim/ctrlp.vim'
