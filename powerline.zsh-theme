@@ -71,22 +71,26 @@ function setprompts {
   ZSH_THEME_GIT_PROMPT_BEHIND=" ⬇"
   ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
 
-  POWERLINE_GIT_INFO_LEFT=" %F{blue}%K{white}"$'\ue0b0'"%F{white}%F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)%F{white}'
-
   if [ $(id -u) -eq 0 ]; then
       POWERLINE_SEC1_BG=%K{red}
       POWERLINE_SEC1_FG=%F{red}
   else
       POWERLINE_SEC1_BG=%K{green}
       POWERLINE_SEC1_FG=%F{green}
+      POWERLINE_SEC2_BG=%K{blue}
+      POWERLINE_SEC2_FG=%F{blue}
   fi
   POWERLINE_SEC1_TXT=%F{black}
   if [ -n "$SSH_CLIENT" ]; then
-    POWERLINE_SEC1_BG=%K{red}
-    POWERLINE_SEC1_FG=%F{red}
-    POWERLINE_SEC1_TXT=%F{white}
+    POWERLINE_SEC1_BG=%K{cyan}
+    POWERLINE_SEC1_FG=%F{cyan}
+    POWERLINE_SEC2_BG=%K{magenta}
+    POWERLINE_SEC2_FG=%F{magenta}
   fi
-  PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME %k%f$POWERLINE_SEC1_FG%K{blue}"$'\ue0b0'"%k%f%F{white}%K{blue} "$_prompt_sorin_pwd"%F{blue}"$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
+
+  POWERLINE_GIT_INFO_LEFT=" %F$POWERLINE_SEC2_FG%K{white}"$'\ue0b0'"%F{white}%F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)%F{white}'
+
+  PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME %k%f$POWERLINE_SEC1_FG$POWERLINE_SEC2_BG"$'\ue0b0'"%k%f%F{white}$POWERLINE_SEC2_BG "$_prompt_sorin_pwd" "$POWERLINE_GIT_INFO_LEFT" %k"$'\ue0b0'"%f "
 
   if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
     PROMPT="
