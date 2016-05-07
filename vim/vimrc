@@ -152,7 +152,7 @@ let g:syntastic_haml_checkers=['haml']
 let g:syntastic_scss_checkers=['scss_lint']
 
 " Auto-focus Tagbar when opened
-let g:tagbar_autofocus = 1
+"let g:tagbar_autofocus = 1
 
 " Adds indentation guide like Sublime
 let g:indentLine_char = '|'
@@ -197,11 +197,11 @@ endif
 nnoremap <Leader>b :execute '!ctags -R'<cr>
 
 " Open Tagbar with CMD+[
-if s:keyplatform == "mac"
-  map <D-[> :execute 'TagbarToggle'<cr>
-else
-  map <C-[> :execute 'TagbarToggle'<cr>
-endif
+"if s:keyplatform == "mac"
+  "map <D-[> :execute 'TagbarToggle'<cr>
+"else
+  "map <C-[> :execute 'TagbarToggle'<cr>
+"endif
 
 " Find current word with CtrlPFunky
 "nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
