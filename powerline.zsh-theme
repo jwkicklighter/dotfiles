@@ -74,6 +74,8 @@ function setprompts {
   if [ $(id -u) -eq 0 ]; then
       POWERLINE_SEC1_BG=%K{red}
       POWERLINE_SEC1_FG=%F{red}
+      POWERLINE_SEC2_BG=%K{blue}
+      POWERLINE_SEC2_FG=%F{blue}
   else
       POWERLINE_SEC1_BG=%K{green}
       POWERLINE_SEC1_FG=%F{green}
