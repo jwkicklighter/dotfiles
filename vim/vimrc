@@ -11,45 +11,27 @@ Plugin 'VundleVim/Vundle.vim'
 " Misc Plugins
 Plugin 'rking/ag.vim'
 Plugin 'Shougo/vimproc.vim'
-"Plugin 'godlygeek/tabular'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
-"Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'dsawardekar/wordpress.vim'
-"Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'tyru/open-browser.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'Raimondi/delimitMate.git'
-Plugin 'Yggdroot/indentLine'
+Plugin 'Raimondi/delimitMate.git'       " Insert mode auto-completion for quotes, parens, brackets, etc.
+Plugin 'Yggdroot/indentLine'            " Indent guides
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'ap/vim-css-color'
 Plugin 'terryma/vim-expand-region'
 Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'myusuf3/numbers.vim'
-"Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'justinmk/vim-sneak'
 Plugin 'tommcdo/vim-exchange'
-Plugin 'pbrisbin/vim-mkdir'
-Plugin 'reedes/vim-wordy'
-Plugin 'Lokaltog/vim-powerline'
-"Plugin 'ahw/vim-hooks'
-
-" Git Plugins
-Plugin 'mattn/webapi-vim'               " Needed for gist-vim
-Plugin 'mattn/gist-vim'
-Plugin 'gregsexton/gitv'
-Plugin 'motemen/git-vim'
-Plugin 'tpope/vim-fugitive'
+Plugin 'pbrisbin/vim-mkdir'             " Automatically create any non-existent directories before writing the buffer.
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-ctrlspace/vim-ctrlspace'
 
 " Syntax Plugins
 Plugin 'SyntaxComplete'
@@ -61,18 +43,29 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'myhere/vim-nodejs-complete'
-"Plugin 'elzr/vim-json'
 Plugin 'nginx.vim'
 Plugin 'tpope/vim-git'
-"Plugin 'dag/vim2hs'
-"Plugin 'eagletmt/ghcmod-vim'
 
 " Color Schemes
 Plugin 'jwkicklighter/vim-schemes'
+
+" Git Plugins
+"Plugin 'mattn/webapi-vim'               " Needed for gist-vim
+"Plugin 'mattn/gist-vim'
+"Plugin 'gregsexton/gitv'
+"Plugin 'motemen/git-vim'
+"Plugin 'tpope/vim-fugitive'
+
+" Disabled Plugins
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'tyru/open-browser.vim'
+"Plugin 'reedes/vim-wordy'
+"Plugin 'ervandew/supertab.git'
 "Plugin 'flazz/vim-colorschemes'
 "Plugin 'nanotech/jellybeans.vim'
 "Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
@@ -82,17 +75,31 @@ Plugin 'jwkicklighter/vim-schemes'
 "Plugin 'xoria256.vim'
 "Plugin 'whatyouhide/vim-gotham'
 "Plugin 'zeis/vim-kolor'
-
-" Disabled Plugins
-"Plugin 'ervandew/supertab.git'
+"Plugin 'elzr/vim-json'
+"Plugin 'dag/vim2hs'
+"Plugin 'eagletmt/ghcmod-vim'
+"Plugin 'ahw/vim-hooks'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+"Plugin 'godlygeek/tabular'
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'Lokaltog/vim-powerline'
+"Plugin 'myusuf3/numbers.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"let $PYTHONPATH='/usr/lib/python2.7/'
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" CtrlSpace
+if has("gui_running")
+  let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+endif
+let g:CtrlSpaceSearchTiming = 0
 
 " AutoCMD stuff
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
@@ -109,6 +116,12 @@ else
   let s:keyplatform = "windows"
 endif
 
+if has("autocmd") && exists("+omnifunc")
+	autocmd Filetype *
+		    \	if &omnifunc == "" |
+		    \		setlocal omnifunc=syntaxcomplete#Complete |
+		    \	endif
+endif
 
 " CUSTOM SETTINGS
 color fox.dark
@@ -135,11 +148,12 @@ set ignorecase                   " Ignore case for searches by default
 set smartcase
 set scrolloff=999                " Cause cursor to stay in middle of screen
 set clipboard=unnamed            " Use system keyboard
+set hidden                       " Required by ctrlspace
 
 set backspace=indent,eol,start   " Fix backspace not deleting tabs, also make delimiteMate work
 
 " Some plugin setting
-let g:ctrlp_show_hidden=1
+"let g:ctrlp_show_hidden=1
 let delimitMate_expand_cr = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -185,26 +199,13 @@ vmap <C-w> <ESC>
 
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 if s:keyplatform == "mac"
-  map <D-O> :CtrlP<cr>
+  map <D-O> :CtrlSpace O<cr>
 else
-  map <C-O> :CtrlP<cr>
+  map <C-O> :CtrlSpace O<cr>
 endif
-
-" Open CtrlPTag with CMD+Shift+B
-"map <D-B> :CtrlPTag<cr>
 
 " Rebuild tags with \b
 nnoremap <Leader>b :execute '!ctags -R'<cr>
-
-" Open Tagbar with CMD+[
-"if s:keyplatform == "mac"
-  "map <D-[> :execute 'TagbarToggle'<cr>
-"else
-  "map <C-[> :execute 'TagbarToggle'<cr>
-"endif
-
-" Find current word with CtrlPFunky
-"nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " Open Syntastic error window
 nnoremap <Leader>e :Errors<cr>
