@@ -100,6 +100,9 @@ if has("gui_running")
   let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
 endif
 let g:CtrlSpaceSearchTiming = 0
+hi CtrlSpaceSelected term=reverse ctermfg=187 ctermbg=23 cterm=bold
+hi CtrlSpaceNormal term=NONE ctermfg=244 ctermbg=232 cterm=NONE
+hi CtrlSpaceFound ctermfg=220 ctermbg=NONE cterm=bold
 
 " AutoCMD stuff
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
@@ -149,6 +152,8 @@ set smartcase
 set scrolloff=999                " Cause cursor to stay in middle of screen
 set clipboard=unnamed            " Use system keyboard
 set hidden                       " Required by ctrlspace
+set splitbelow                   " Open new splits below the current buffer
+set splitright                   " Open new splits to the right of the current buffer
 
 set backspace=indent,eol,start   " Fix backspace not deleting tabs, also make delimiteMate work
 
@@ -193,9 +198,18 @@ vmap <C-tab> :tabnext<cr>
 imap <C-S-tab> <C-o>:tabprevious<cr>
 imap <C-tab> <C-o>:tabnext<cr>
 
-" Use Ctrl+m for <ESC>
-imap <C-w> <ESC>
-vmap <C-w> <ESC>
+" Bettor split navigation
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Open CtrlSpace with CMD+Shift+A
+if s:keyplatform == "mac"
+  map <D-A> :CtrlSpace<cr>
+else
+  map <C-A> :CtrlSpace<cr>
+endif
 
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 if s:keyplatform == "mac"
@@ -234,19 +248,19 @@ endif
 
 " CMD+k/CMD+j to move lines up/down
 if s:keyplatform == "mac"
-  nnoremap <D-j> :m .+1<CR>==
-  nnoremap <D-k> :m .-2<CR>==
-  inoremap <D-j> <Esc>:m .+1<CR>==gi
-  inoremap <D-k> <Esc>:m .-2<CR>==gi
-  vnoremap <D-j> :m '>+1<CR>gv=gv
-  vnoremap <D-k> :m '<-2<CR>gv=gv
+  nnoremap <D-J> :m .+1<CR>==
+  nnoremap <D-K> :m .-2<CR>==
+  inoremap <D-J> <Esc>:m .+1<CR>==gi
+  inoremap <D-K> <Esc>:m .-2<CR>==gi
+  vnoremap <D-J> :m '>+1<CR>gv=gv
+  vnoremap <D-K> :m '<-2<CR>gv=gv
 else
-  nnoremap <C-j> :m .+1<CR>==
-  nnoremap <C-k> :m .-2<CR>==
-  inoremap <C-j> <Esc>:m .+1<CR>==gi
-  inoremap <C-k> <Esc>:m .-2<CR>==gi
-  vnoremap <C-j> :m '>+1<CR>gv=gv
-  vnoremap <C-k> :m '<-2<CR>gv=gv
+  nnoremap <C-J> :m .+1<CR>==
+  nnoremap <C-K> :m .-2<CR>==
+  inoremap <C-J> <Esc>:m .+1<CR>==gi
+  inoremap <C-K> <Esc>:m .-2<CR>==gi
+  vnoremap <C-J> :m '>+1<CR>gv=gv
+  vnoremap <C-K> :m '<-2<CR>gv=gv
 endif
 
 " CMD+e to expand emmet snippet
