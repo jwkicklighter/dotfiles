@@ -95,15 +95,6 @@ filetype plugin indent on    " required
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" CtrlSpace
-if has("gui_running")
-  let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
-endif
-let g:CtrlSpaceSearchTiming = 0
-hi CtrlSpaceSelected term=reverse ctermfg=187 ctermbg=23 cterm=bold
-hi CtrlSpaceNormal term=NONE ctermfg=244 ctermbg=232 cterm=NONE
-hi CtrlSpaceFound ctermfg=220 ctermbg=NONE cterm=bold
-
 " AutoCMD stuff
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
@@ -156,6 +147,15 @@ set splitbelow                   " Open new splits below the current buffer
 set splitright                   " Open new splits to the right of the current buffer
 
 set backspace=indent,eol,start   " Fix backspace not deleting tabs, also make delimiteMate work
+
+" CtrlSpace
+if has("gui_running")
+  let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+endif
+let g:CtrlSpaceSearchTiming = 0
+hi CtrlSpaceSelected term=reverse ctermfg=187 ctermbg=23 cterm=bold
+hi CtrlSpaceNormal term=NONE ctermfg=244 ctermbg=232 cterm=NONE
+hi CtrlSpaceFound ctermfg=220 ctermbg=NONE cterm=bold
 
 " Some plugin setting
 "let g:ctrlp_show_hidden=1
