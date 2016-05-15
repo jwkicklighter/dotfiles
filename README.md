@@ -13,6 +13,8 @@ This is my collection of dotfiles and configurations.
 
 Run `install-all.sh` and pray.
 
+**NOTE** For the time being, oh-my-zsh will start a zsh session in the middle of the install script. Type `exit` to finish linking everything, and then start a new session to see everything linked and ready to go.
+
 ## OLD INSTALL METHOD
 
 ### Link Dotfiles (optional)
