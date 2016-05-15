@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 #
 # Links dotfiles, installs oh-my-zsh, and links zsh theme/plugins.
 
