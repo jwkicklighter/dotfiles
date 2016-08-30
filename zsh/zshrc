@@ -62,6 +62,7 @@ javar () {
 alias vu='vagrant up'
 alias vh='vagrant halt'
 alias vs='vagrant suspend'
+alias vst='vagrant status'
 
 # Mac
 cleanopenwith='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
@@ -81,9 +82,12 @@ alias grserve='grunt server'
 alias gs='git status'
 alias gf='git fetch'
 alias gff='git flow feature'
+alias gffc='git flow feature checkout'
+alias gffp='git flow feature publish'
 alias gffs='git flow feature start'
 alias gfff='git flow feature finish'
 alias gfh='git flow hotfix'
+alias gfhc='git flow hotfix checkout'
 alias gfhs='git flow hotfix start'
 alias gfhf='git flow hotfix finish'
 alias gfr='git flow release'
@@ -91,6 +95,7 @@ alias gfrs='git flow release start'
 alias gfrf='git flow release finish'
 alias gl='git log --all --graph --decorate --oneline --simplify-by-decoration'
 alias gt='git tag'
+alias gcuc='git commit -m "Update changelog"'
 
 # Sublime Text
 alias st.='st .'
