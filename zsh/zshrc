@@ -121,6 +121,7 @@ export PATH=$PATH:"/sbin"
 export PATH=$PATH:"$HOME/bin"
 export PATH=$PATH:"$HOME/bin/sbt"
 export PATH=$PATH:"$HOME/.cabal/bin"
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 #Mono
 export MONO_GAC_PREFIX="/usr/local"
