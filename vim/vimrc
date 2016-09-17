@@ -1,96 +1,98 @@
 " Vundle
 set nocompatible              " be iMproved, required
-filetype off                  " required
+"filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
 " Let Vundle manage itself
-Plugin 'VundleVim/Vundle.vim'
+"Plug 'VundleVim/Vundle.vim'
 
-" Misc Plugins
-Plugin 'rking/ag.vim'
-Plugin 'craigemery/vim-autotag'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'mattn/emmet-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'dsawardekar/wordpress.vim'
-Plugin 'Raimondi/delimitMate.git'       " Insert mode auto-completion for quotes, parens, brackets, etc.
-Plugin 'Yggdroot/indentLine'            " Indent guides
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'ap/vim-css-color'
-Plugin 'terryma/vim-expand-region'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'justinmk/vim-sneak'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'pbrisbin/vim-mkdir'             " Automatically create any non-existent directories before writing the buffer.
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'vim-ctrlspace/vim-ctrlspace'
-"Plugin 'AutoComplPop'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Misc Plugs
+Plug 'rking/ag.vim'
+Plug 'craigemery/vim-autotag'
+Plug 'Shougo/vimproc.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/syntastic'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'dsawardekar/wordpress.vim'
+Plug 'delimitMate.vim'       " Insert mode auto-completion for quotes, parens, brackets, etc.
+Plug 'Yggdroot/indentLine'            " Indent guides
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'ap/vim-css-color'
+Plug 'terryma/vim-expand-region'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'justinmk/vim-sneak'
+Plug 'tommcdo/vim-exchange'
+Plug 'pbrisbin/vim-mkdir'             " Automatically create any non-existent directories before writing the buffer.
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-ctrlspace/vim-ctrlspace'
+"Plug 'AutoComplPop'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 
-" Syntax Plugins
-"Plugin 'SyntaxComplete'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-endwise'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'myhere/vim-nodejs-complete'
-Plugin 'nginx.vim'
-Plugin 'tpope/vim-git'
+" Syntax Plugs
+"Plug 'SyntaxComplete'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'plasticboy/vim-markdown'
+Plug 'kchmck/vim-coffee-script'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'StanAngeloff/php.vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'myhere/vim-nodejs-complete'
+Plug 'nginx.vim'
+Plug 'tpope/vim-git'
+Plug 'rust-lang/rust.vim'
+Plug 'phildawes/racer'
 
 " Color Schemes
-Plugin 'jwkicklighter/vim-schemes'
+Plug 'jwkicklighter/vim-schemes'
 
-" Git Plugins
-"Plugin 'mattn/webapi-vim'               " Needed for gist-vim
-"Plugin 'mattn/gist-vim'
-"Plugin 'gregsexton/gitv'
-"Plugin 'motemen/git-vim'
-"Plugin 'tpope/vim-fugitive'
+" Git Plugs
+"Plug 'mattn/webapi-vim'               " Needed for gist-vim
+"Plug 'mattn/gist-vim'
+"Plug 'gregsexton/gitv'
+"Plug 'motemen/git-vim'
+"Plug 'tpope/vim-fugitive'
 
-" Disabled Plugins
-"Plugin 'pangloss/vim-javascript'
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'tyru/open-browser.vim'
-"Plugin 'reedes/vim-wordy'
-"Plugin 'ervandew/supertab.git'
-"Plugin 'flazz/vim-colorschemes'
-"Plugin 'nanotech/jellybeans.vim'
-"Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-"Plugin 'antlypls/vim-colors-codeschool'
-"Plugin 'wellsjo/wellsokai.vim'
-"Plugin 'junegunn/limelight.vim'
-"Plugin 'xoria256.vim'
-"Plugin 'whatyouhide/vim-gotham'
-"Plugin 'zeis/vim-kolor'
-"Plugin 'elzr/vim-json'
-"Plugin 'dag/vim2hs'
-"Plugin 'eagletmt/ghcmod-vim'
-"Plugin 'ahw/vim-hooks'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'godlygeek/tabular'
-Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'shawncplus/phpcomplete.vim'
-"Plugin 'Lokaltog/vim-powerline'
-"Plugin 'myusuf3/numbers.vim'
+" Disabled Plugs
+"Plug 'pangloss/vim-javascript'
+"Plug 'MarcWeber/vim-addon-mw-utils'
+"Plug 'tomtom/tlib_vim'
+"Plug 'tyru/open-browser.vim'
+"Plug 'reedes/vim-wordy'
+"Plug 'ervandew/supertab.git'
+"Plug 'flazz/vim-colorschemes'
+"Plug 'nanotech/jellybeans.vim'
+"Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+"Plug 'antlypls/vim-colors-codeschool'
+"Plug 'wellsjo/wellsokai.vim'
+"Plug 'junegunn/limelight.vim'
+"Plug 'xoria256.vim'
+"Plug 'whatyouhide/vim-gotham'
+"Plug 'zeis/vim-kolor'
+"Plug 'elzr/vim-json'
+"Plug 'dag/vim2hs'
+"Plug 'eagletmt/ghcmod-vim'
+"Plug 'ahw/vim-hooks'
+"Plug 'majutsushi/tagbar'
+"Plug 'godlygeek/tabular'
+Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'shawncplus/phpcomplete.vim'
+"Plug 'Lokaltog/vim-powerline'
+"Plug 'myusuf3/numbers.vim'
 
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 " Airline
