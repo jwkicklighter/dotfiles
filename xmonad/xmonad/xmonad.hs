@@ -56,6 +56,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
   -- launch a terminal
   [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+  , ((modm, xF86XK_Eject), spawn $ XMonad.terminal conf)
 
   -- Backlight Keys
   , ((modm, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 10")
@@ -64,6 +65,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   -- Keyboard Light Keys
   , ((modm, xF86XK_KbdBrightnessUp), spawn "kb-light +")
   , ((modm, xF86XK_KbdBrightnessDown), spawn "kb-light -")
+
+  -- Volume Keys
+  , ((modm, xF86XK_AudioRaiseVolume), spawn "amixer -q sset 'Master' 5%+")
+  , ((modm, xF86XK_AudioLowerVolume), spawn "amixer -q sset 'Master' 5%-")
+  , ((modm, xF86XK_AudioMute), spawn "amixer -q sset 'Master' toggle")
 
   -- Rotate through the available layout algorithms
   , ((modm, xK_space ), sendMessage NextLayout)
@@ -90,6 +96,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   -- Move focus to the next window
   , ((modm, xK_Tab), windows W.focusDown)
   , ((modm .|. shiftMask, xK_Tab), windows W.focusUp)
+
+  -- Logout xmonad
+  , ((modMask .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
   -- Restart xmonad
   , ((modm , xK_q), spawn "xmonad --recompile; xmonad --restart")

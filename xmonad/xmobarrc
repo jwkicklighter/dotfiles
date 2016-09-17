@@ -1,32 +1,18 @@
 Config { 
-  font = "xft:SFNS Display:size=12:boldantialias=true"
-  , additionalFonts = ["xft:FontAwesome-12"]
+  font = "xft:SFNS Display:size=12:antialias=true"
+  , additionalFonts = ["xft:FontAwesome-13"]
   , bgColor     = "black"
   , fgColor     = "grey"
   , position    = TopW L 100
   , commands    = [
-    Run Weather "KSFB" [ "-t"
-                       , "<tempF>F"
-                       , "-L"
-                       , "65"
-                       , "-H"
-                       , "90"
-                       , "--normal"
-                       , "white"
-                       , "--high"
-                       , "red"
-                       , "--low"
-                       , "lightblue"
-                       ] 18000
-    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-    , Run Cpu          [ "--template" , "<fn=1></fn> <total>%"
+      Run Cpu          [ "--template" , "<fn=1></fn> <total>%"
                        , "-L"         , "3"
                        , "-H"         , "50"
                        , "--normal"   , "green"
                        , "--high"     , "red"
                        ] 10
     , Run Memory       [ "--template" , "<fn=1></fn> <usedratio>%"] 10
-    , Run Date "%m/%_d/%y %l:%M" "date" 10
+    , Run Date         "%m/%_d/%y %l:%M" "date" 10
     , Run StdinReader
     , Run Battery      [ "--template" , "<acstatus>"
                        , "--Low"      , "10"        -- units: %
@@ -46,5 +32,5 @@ Config {
     ]
 , sepChar = "%"
   , alignSep = "}{"
-  , template = "<fc=#fff,#39c48e>%StdinReader%</fc> }{ <fc=#ee9a00>%date%</fc>   |   %cpu%   %memory%   |   %battery%"
+  , template = "<fc=#1f1f1f,#cccccc>  <fn=1></fn>  </fc><fc=#fff,#39c48e>%StdinReader%</fc> }{<fc=#ee9a00>%date%</fc>   |   %cpu%   %memory%   |   %battery%"
   }
