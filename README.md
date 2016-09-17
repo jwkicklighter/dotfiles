@@ -15,6 +15,10 @@ Run `install-all.sh` and pray.
 
 **NOTE** For the time being, oh-my-zsh will start a zsh session in the middle of the install script. Type `exit` to finish linking everything, and then start a new session to see everything linked and ready to go.
 
+Run `install-pacaur.sh` on Arch systems to get pacaur up and running.
+
+Run `install-plug.sh` to install Plug for vim. Inside of vim or neovim, run `PlugInstall` to install the plugins.
+
 ## OLD INSTALL METHOD
 
 ### Link Dotfiles (optional)
