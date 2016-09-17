@@ -17,7 +17,9 @@ Run `install-all.sh` and pray.
 
 Run `install-pacaur.sh` on Arch systems to get pacaur up and running.
 
-Run `install-plug.sh` to install Plug for vim. Inside of vim or neovim, run `PlugInstall` to install the plugins.
+Run `install-plug.sh` to install Plug for vim. Inside of vim, run `PlugInstall` to install the plugins.
+
+Run `install-plug-nvim.sh` to install Plug for nvim. Inside of nvim, run `PlugInstall` to install the plugins.
 
 ## OLD INSTALL METHOD
 
