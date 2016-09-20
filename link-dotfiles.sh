@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 #
 # Links dotfiles into the home directory
 RED='\033[0;31m'
