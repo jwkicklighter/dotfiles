@@ -190,6 +190,7 @@ let g:gist_show_privates = 1            " Let :Gist -l show private gists
 let g:gist_post_private = 1             " Set gists as private by default
 
 " NERDTree/NERDTreeTabs
+let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " CUSTOM KEYBINDINGS
 " Use <Space> to open prompt
