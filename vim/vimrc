@@ -145,7 +145,7 @@ set showmatch                    " Highlight matching brackets
 set incsearch
 set ignorecase                   " Ignore case for searches by default
 set smartcase
-set scrolloff=999                " Cause cursor to stay in middle of screen
+set scrolloff=0                  " Cause cursor to stay in middle of screen
 set clipboard=unnamed            " Use system keyboard
 set hidden                       " Required by ctrlspace
 set splitbelow                   " Open new splits below the current buffer
