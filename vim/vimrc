@@ -208,6 +208,12 @@ vmap <C-tab> :bnext<cr>
 imap <C-S-tab> <C-o>:bprev<cr>
 imap <C-tab> <C-o>:bnext<cr>
 
+" Close current buffer without killing split
+command Q bp|bw#
+
+" Close last buffer (:q last)
+command QL bw#
+
 " Bettor split navigation
 map <C-j> <C-W>j
 map <C-k> <C-W>k
