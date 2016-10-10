@@ -10,7 +10,8 @@ call plug#begin('~/.vim/plugged')
 
 " Misc Plugs
 Plug 'rking/ag.vim'
-Plug 'craigemery/vim-autotag'
+Plug 'valloric/youcompleteme'
+"Plug 'craigemery/vim-autotag'
 Plug 'Shougo/vimproc.vim'
 Plug 'airblade/vim-gitgutter'
 "Plug 'mattn/emmet-vim'
@@ -38,7 +39,7 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'honza/vim-snippets'
 
 " Syntax Plugs
-"Plug 'SyntaxComplete'
+Plug 'SyntaxComplete'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-cucumber'
