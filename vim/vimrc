@@ -9,8 +9,9 @@ call plug#begin('~/.vim/plugged')
 "Plug 'VundleVim/Vundle.vim'
 
 " Misc Plugs
+Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 "Plug 'craigemery/vim-autotag'
 Plug 'Shougo/vimproc.vim'
 Plug 'airblade/vim-gitgutter'
@@ -54,6 +55,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'myhere/vim-nodejs-complete'
 Plug 'nginx.vim'
 Plug 'tpope/vim-git'
+Plug 'posva/vim-vue'
 "Plug 'rust-lang/rust.vim'
 "Plug 'phildawes/racer'
 
@@ -132,13 +134,14 @@ set softtabstop=2
 set expandtab
 set autoindent
 set smartindent
-set gfn=Hack:h13
+set gfn=Hack:h11
 set linespace=2                  " Adds space in between lines
 set conceallevel=0               " Do not hide any quotes
 let g:conceallevel=0
 set nofoldenable                 " disable folding
 set laststatus=2                 " Always show the statusline
 set encoding=utf-8               " Necessary to show Unicode glyphs
+set colorcolumn=120              " Show a line guide at 120
 
 set autoread                     " Read changes to files outside vim
 set magic
@@ -179,6 +182,10 @@ let g:syntastic_scss_checkers=['scss_lint']
 
 " Auto-focus Tagbar when opened
 "let g:tagbar_autofocus = 1
+
+" Startify Settings
+let g:startify_bookmarks = [ {'v': '~/.vimrc'}, {'z': '~/.zshrc'}, {'d': '~/dev/kommander/detail-kommander'} ]
+let g:startify_change_to_vcs_root = 1
 
 " Adds indentation guide like Sublime
 let g:indentLine_char = '|'
