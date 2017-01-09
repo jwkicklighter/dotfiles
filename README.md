@@ -11,6 +11,8 @@ This is my collection of dotfiles and configurations.
 
 ## NEW INSTALL METHOD
 
+Install `zsh` if you have not done so. (`brew install zsh` on Mac, `sudo apt-get install zsh` on Ubuntu, `pacman -Syu zsh` on Arch)
+
 Run `install-all.sh` and pray.
 
 **NOTE** For the time being, oh-my-zsh will start a zsh session in the middle of the install script. Type `exit` to finish linking everything, and then start a new session to see everything linked and ready to go.
