@@ -46,4 +46,4 @@ There is a modified version of the osx-for-hackers.sh script in `osx/` (original
 
 ## Vimrc/Ideavimrc
 
-My .vimrc assumes that you have [Vundle](https://github.com/VundleVim/Vundle.vim) installed. The .ideavimrc is for the JetBrains IdeaVim plugin, and is read by any of their editors that have the plugin installed.
+My .vimrc assumes that you have Plug installed. If you followed all the instructions, you will have it installed for Vim or Neovim. The .ideavimrc is for the JetBrains IdeaVim plugin, and is read by any of their editors that have the plugin installed.
