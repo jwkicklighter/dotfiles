@@ -122,8 +122,12 @@ export PATH=$PATH:"/sbin"
 export PATH=$PATH:"$HOME/bin"
 export PATH=$PATH:"$HOME/bin/sbt"
 export PATH=$PATH:"$HOME/.cabal/bin"
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export PATH=$PATH:"$HOME/.cargo/bin"
+
+# Only export ruby gem path if ruby is installed
+if command -v ruby > /dev/null 2>&1; then
+  export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+fi
 
 #Mono
 export MONO_GAC_PREFIX="/usr/local"
