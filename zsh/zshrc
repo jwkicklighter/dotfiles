@@ -129,6 +129,11 @@ if command -v ruby > /dev/null 2>&1; then
   export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 fi
 
+# Only export docker-machine variables if docker-machine is installed
+if command -v docker-machine > /dev/null 2>&1 && [ $(docker-machine status) = "Running" ]; then
+  eval $(docker-machine env)
+fi
+
 #Mono
 export MONO_GAC_PREFIX="/usr/local"
 
