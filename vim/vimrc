@@ -242,8 +242,21 @@ map <C-l> <C-W>l
 " Open CtrlP with CMD+Shift+O, like IntelliJ
 if s:keyplatform == "mac"
   map <D-O> <C-p>
+  nmap <D-C> :CtrlPClearCache<cr>
 else
   map <C-O> <C-p>
+  nmap <C-C> :CtrlPClearCache<cr>
+endif
+
+" Open :Ag with CMD+Shift+F
+if s:keyplatform == "mac"
+  nmap <D-F> :Ag 
+  vmap <D-F> :Ag 
+  imap <D-F> <esc>:Ag 
+else
+  nmap <C-F> :Ag 
+  vmap <C-F> :Ag 
+  imap <C-F> <esc>:Ag 
 endif
 
 " Rebuild tags with \b
