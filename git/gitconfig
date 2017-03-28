@@ -1,0 +1,20 @@
+[core]
+	excludesfile = /Users/jordan/.gitignore_global
+	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Jordan Kicklighter
+	email = jwkicklighter@gmail.com
+[push]
+	default = simple
+[github]
+	user = jwkicklighter
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+[init]
+	templatedir = ~/.git_template
