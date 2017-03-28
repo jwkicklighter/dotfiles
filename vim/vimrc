@@ -104,6 +104,10 @@ let g:airline_powerline_fonts = 1
 
 " AutoCMD stuff
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+autocmd FileType ruby compiler ruby
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Detect platform for keybindings
 if has("unix")
@@ -118,10 +122,10 @@ else
 endif
 
 if has("autocmd") && exists("+omnifunc")
-	autocmd Filetype *
-		    \	if &omnifunc == "" |
-		    \		setlocal omnifunc=syntaxcomplete#Complete |
-		    \	endif
+  autocmd Filetype *
+        \	if &omnifunc == "" |
+        \		setlocal omnifunc=syntaxcomplete#Complete |
+        \	endif
 endif
 
 " CUSTOM SETTINGS
@@ -254,6 +258,8 @@ if s:keyplatform == "mac"
 else
   map <C-d> :t.<cr>
 endif
+
+imap <C-Space> <C-x><C-o>
 
 " Open NERDTree with CMD+\ or CTRL+\
 if s:keyplatform == "mac"
