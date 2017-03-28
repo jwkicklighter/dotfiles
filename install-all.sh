@@ -8,7 +8,7 @@ SCRIPT_DIR="$(dirname $0)"
 OMZ_FILE=/tmp/oh-my-zsh-install.sh
 curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > $OMZ_FILE
 chmod +x $OMZ_FILE
-$OMZ_FILE
+eval $OMZ_FILE
 rm $OMZ_FILE
 
 # Link powerline theme
