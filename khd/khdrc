@@ -1,0 +1,50 @@
+# enable kwm compatibility mode
+khd kwm on
+
+alt - r                 :   khd -e "reload" # reload config
+
+# Change active window
+alt - h                 :   kwmc window -f west
+alt - l                 :   kwmc window -f east
+alt - j                 :   kwmc window -f south
+alt - k                 :   kwmc window -f north
+alt - tab               :   kwmc window -f north
+alt + shift - tab       :   kwmc window -f north
+
+# Rotate tree configuration
+alt + shift - r         :   kwmc tree rotate 90
+
+# Toggle active window mode
+alt - f                 :   kwmc window -z fullscreen
+alt - p                 :   kwmc window -z parent
+alt + shift - space     :   kwmc window -t focused
+
+# Move active window
+alt + shift - h         :   kwmc window -s west
+alt + shift - j         :   kwmc window -s south
+alt + shift - k         :   kwmc window -s north
+alt + shift - l         :   kwmc window -s east
+alt + shift - m         :   kwmc window -s mark
+
+# Resize active window
+alt + ctrl - h          :   kwmc window -c expand 0.05 west
+alt + ctrl - j          :   kwmc window -c expand 0.05 south
+alt + ctrl - k          :   kwmc window -c expand 0.05 north
+alt + ctrl - l          :   kwmc window -c expand 0.05 east
+
+# Displays
+cmd + shift - 1         :   kwmc window -m display 1
+cmd + shift - 2         :   kwmc window -m display 0
+cmd + shift - 3         :   kwmc window -m display 2
+
+# Spaces
+alt - 1                 :   kwmc space -fExperimental 1
+alt - 2                 :   kwmc space -fExperimental 2
+alt - 3                 :   kwmc space -fExperimental 3
+
+alt + shift - 1         :   kwmc window -m space 1
+alt + shift - 2         :   kwmc window -m space 2
+alt + shift - 3         :   kwmc window -m space 3
+
+alt - b                 :   kwmc space -t bsp
+alt - m                 :   kwmc space -t monocle
