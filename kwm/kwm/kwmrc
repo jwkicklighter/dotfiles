@@ -27,4 +27,4 @@ kwmc config border marked color 0xDD7f7f7f
 kwmc config border marked radius 6
 
 include space
-//include rules
+include rules
