@@ -1,18 +1,26 @@
 # enable kwm compatibility mode
 khd kwm on
 
-alt - r                 :   khd -e "reload" # reload config
+# Set border colors for khd modes
+khd mode default color 0xDD42CC9F
+khd mode resize color 0xDD4E93E5
 
-# Change active window
+# Switch to separate khd modes
+alt + shift - r         :   khd -e "reload" # reload config
+ctrl + alt - r          :   khd -e "mode activate resize"
+resize + ctrl + alt - r :   khd -e "mode activate default"
+resize + ctrl - c       :   khd -e "mode activate default"
+
+# Select active window
 alt - h                 :   kwmc window -f west
 alt - l                 :   kwmc window -f east
 alt - j                 :   kwmc window -f south
 alt - k                 :   kwmc window -f north
-alt - tab               :   kwmc window -f north
-alt + shift - tab       :   kwmc window -f north
+alt - tab               :   kwmc window -f next
+alt + shift - tab       :   kwmc window -f prev
 
 # Rotate tree configuration
-alt + shift - r         :   kwmc tree rotate 90
+alt - r                 :   kwmc tree rotate 90
 
 # Toggle active window mode
 alt - f                 :   kwmc window -z fullscreen
@@ -24,27 +32,36 @@ alt + shift - h         :   kwmc window -s west
 alt + shift - j         :   kwmc window -s south
 alt + shift - k         :   kwmc window -s north
 alt + shift - l         :   kwmc window -s east
-alt + shift - m         :   kwmc window -s mark
 
 # Resize active window
-alt + ctrl - h          :   kwmc window -c expand 0.05 west
-alt + ctrl - j          :   kwmc window -c expand 0.05 south
-alt + ctrl - k          :   kwmc window -c expand 0.05 north
-alt + ctrl - l          :   kwmc window -c expand 0.05 east
+resize - h              :   kwmc window -c expand 0.05 west
+resize - j              :   kwmc window -c expand 0.05 south
+resize - k              :   kwmc window -c expand 0.05 north
+resize - l              :   kwmc window -c expand 0.05 east
+resize + shift - h      :   kwmc window -c reduce 0.05 west
+resize + shift - j      :   kwmc window -c reduce 0.05 south
+resize + shift - k      :   kwmc window -c reduce 0.05 north
+resize + shift - l      :   kwmc window -c reduce 0.05 east
 
-# Displays
-cmd + shift - 1         :   kwmc window -m display 1
-cmd + shift - 2         :   kwmc window -m display 0
-cmd + shift - 3         :   kwmc window -m display 2
+# Select display
+alt - 1                 :   kwmc display -f 1
+alt - 2                 :   kwmc display -f 0
+alt - 3                 :   kwmc display -f 2
 
-# Spaces
-alt - 1                 :   kwmc space -fExperimental 1
-alt - 2                 :   kwmc space -fExperimental 2
-alt - 3                 :   kwmc space -fExperimental 3
+# Move active window to display
+alt + shift - 1         :   kwmc window -m display 1
+alt + shift - 2         :   kwmc window -m display 0
+alt + shift - 3         :   kwmc window -m display 2
 
-alt + shift - 1         :   kwmc window -m space 1
-alt + shift - 2         :   kwmc window -m space 2
-alt + shift - 3         :   kwmc window -m space 3
+# Select space
+ctrl + alt - 1          :   kwmc space -fExperimental 1
+ctrl + alt - 2          :   kwmc space -fExperimental 2
+ctrl + alt - 3          :   kwmc space -fExperimental 3
+
+# Move active window to space
+ctrl + alt + shift - 1  :   kwmc window -m space 1
+ctrl + alt + shift - 2  :   kwmc window -m space 2
+ctrl + alt + shift - 3  :   kwmc window -m space 3
 
 alt - b                 :   kwmc space -t bsp
 alt - m                 :   kwmc space -t monocle
