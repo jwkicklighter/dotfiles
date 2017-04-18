@@ -11,3 +11,4 @@
 //kwmc rule owner="System Preferences" properties={float="true"}
 kwmc rule owner="Photoshop CC" properties={float="true"}
 kwmc rule owner="1Password 6" properties={float="true"}
+kwmc rule owner="The Unarchiver" properties={float="true"}
