@@ -97,6 +97,7 @@ alias gfrf='git flow release finish'
 alias gl='git log --all --graph --decorate --oneline --simplify-by-decoration'
 alias gt='git tag'
 alias gcuc='git commit -m "Update changelog"'
+alias gffp.='git flow feature publish $(git branch | grep \* | sed -e "s/\* feature\///g")'
 
 # Sublime Text
 alias st.='st .'
