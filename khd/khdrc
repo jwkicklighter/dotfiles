@@ -81,9 +81,23 @@ alt + shift - 7                   :   kwmc window -m space 7
 alt + shift - l                   :   kwmc window -m space right
 alt + shift - h                   :   kwmc window -m space left
 
+# Select display
+ctrl + alt - 1                    :   kwmc display -f 1
+ctrl + alt - 2                    :   kwmc display -f 0
+ctrl + alt - 3                    :   kwmc display -f 2
+
+# Move active window to display
+ctrl + alt + shift - 1            :   kwmc window -m display 1
+ctrl + alt + shift - 2            :   kwmc window -m display 0
+ctrl + alt + shift - 3            :   kwmc window -m display 2
 
 
-# DESKTOP MODE
+
+# DESKTOP MODE - NOT WORKING
+
+# Change space mode
+desktop + alt - b                 :   kwmc space -t bsp
+desktop + alt - m                 :   kwmc space -t monocle
 
 # Select display
 desktop + alt - 1                 :   kwmc display -f 1
