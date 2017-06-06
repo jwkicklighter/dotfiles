@@ -18,3 +18,5 @@
 	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [init]
 	templatedir = ~/.git_template
+[commit]
+	template = /Users/jordan/.stCommitMsg

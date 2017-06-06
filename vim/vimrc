@@ -209,6 +209,9 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 nmap <Space> :
 vmap <Space> :
 
+imap jk <Esc>
+vmap jk <Esc>
+
 " Use Ctrl+[ to preview tag
 map <C-}> <C-W>}
 
