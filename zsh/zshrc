@@ -188,21 +188,21 @@ SPACESHIP_PROMPT_ORDER=(
   host
   dir
   git
-  hg
+  #hg
   node
   ruby
-  xcode
-  swift
-  golang
-  php
-  rust
-  julia
-  docker
+  #xcode
+  #swift
+  #golang
+  #php
+  #rust
+  #julia
+  #docker
   venv
   pyenv
   exec_time
   line_sep
-  vi_mode
+  #vi_mode
   char
 )
 
@@ -255,7 +255,7 @@ SPACESHIP_DIR_COLOR="cyan"
 SPACESHIP_GIT_SHOW=true
 SPACESHIP_GIT_PREFIX="on "
 SPACESHIP_GIT_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"
-SPACESHIP_GIT_SYMBOL=" "
+SPACESHIP_GIT_SYMBOL=""
 # GIT BRANCH
 SPACESHIP_GIT_BRANCH_SHOW=true
 SPACESHIP_GIT_BRANCH_PREFIX="$SPACESHIP_GIT_SYMBOL"
