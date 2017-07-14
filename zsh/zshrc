@@ -109,8 +109,13 @@ alias adb-n6='adb connect 192.168.1.44'
 alias adb-usb='adb usb'
 
 # Docker
-alias b2d='boot2docker'
-export DOCKER_HOST=tcp://192.168.59.103:2375
+alias dcu='docker-compose up -d'
+alias dcd='docker-compose down'
+alias dcr='docker-compose run --rm'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias drm='docker rm'
+alias drma='docker rm $(docker ps -aq)'
 
 # ALL the bins!
 export PATH="$HOME/sbin":$PATH
