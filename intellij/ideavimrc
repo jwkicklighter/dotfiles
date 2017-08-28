@@ -16,5 +16,12 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 
+map - ^
+map _ $
+
+imap jk <Esc>
+set timeoutlen=300
+
 " IntelliJ-specific settings
 map \r :action ReformatCode<CR>
+set surround

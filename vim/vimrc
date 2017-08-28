@@ -1,27 +1,17 @@
 " Vundle
 set nocompatible              " be iMproved, required
-"filetype off                  " required
-
-"set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.vim/plugged')
-
-" Let Vundle manage itself
-"Plug 'VundleVim/Vundle.vim'
 
 " Misc Plugs
 Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
-"Plug 'valloric/youcompleteme'
-"Plug 'craigemery/vim-autotag'
 Plug 'Shougo/vimproc.vim'
 Plug 'airblade/vim-gitgutter'
-"Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'dsawardekar/wordpress.vim'
 Plug 'delimitMate.vim'                " Insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'Yggdroot/indentLine'            " Indent guides
 Plug 'scrooloose/nerdcommenter'
@@ -30,14 +20,9 @@ Plug 'ap/vim-css-color'
 Plug 'terryma/vim-expand-region'      " use +/_ to expand/contract visual selection region
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'justinmk/vim-sneak'
-"Plug 'tommcdo/vim-exchange'
 Plug 'pbrisbin/vim-mkdir'             " Automatically create any non-existent directories before writing the buffer.
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'vim-ctrlspace/vim-ctrlspace'
-"Plug 'AutoComplPop'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
 
 " Syntax Plugs
 Plug 'SyntaxComplete'
@@ -56,17 +41,12 @@ Plug 'myhere/vim-nodejs-complete'
 Plug 'nginx.vim'
 Plug 'tpope/vim-git'
 Plug 'posva/vim-vue'
-"Plug 'rust-lang/rust.vim'
-"Plug 'phildawes/racer'
 
 " Color Schemes
 Plug 'jwkicklighter/vim-schemes'
+Plug 'rakr/vim-one'
 
 " Git Plugs
-"Plug 'mattn/webapi-vim'               " Needed for gist-vim
-"Plug 'mattn/gist-vim'
-"Plug 'gregsexton/gitv'
-"Plug 'motemen/git-vim'
 Plug 'tpope/vim-fugitive'
 
 " Disabled Plugs
@@ -101,6 +81,7 @@ filetype plugin indent on    " required
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='one'
 
 " AutoCMD stuff
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
@@ -128,8 +109,29 @@ if has("autocmd") && exists("+omnifunc")
         \	endif
 endif
 
+"Credit joshdick
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+let g:one_allow_italics=1
+
 " CUSTOM SETTINGS
-color fox.dark
+"color fox.dark
+color one
+set background=dark
 syntax on
 set number                       " Enable line numbers
 set tabstop=2
@@ -141,7 +143,6 @@ set smartindent
 set gfn=Hack:h11
 set linespace=2                  " Adds space in between lines
 set conceallevel=0               " Do not hide any quotes
-let g:conceallevel=0
 set nofoldenable                 " disable folding
 set laststatus=2                 " Always show the statusline
 set encoding=utf-8               " Necessary to show Unicode glyphs
@@ -210,7 +211,7 @@ nmap <Space> :
 vmap <Space> :
 
 imap jk <Esc>
-vmap jk <Esc>
+"vmap jk <Esc>
 
 " Use Ctrl+[ to preview tag
 map <C-}> <C-W>}
