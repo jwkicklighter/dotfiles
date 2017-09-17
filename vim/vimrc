@@ -212,6 +212,8 @@ vmap <Space> :
 
 imap jk <Esc>
 "vmap jk <Esc>
+nmap - ^
+nmap _ $
 
 " Use Ctrl+[ to preview tag
 map <C-}> <C-W>}
