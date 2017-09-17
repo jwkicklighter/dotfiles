@@ -22,7 +22,7 @@ ZSH_THEME="spaceship"
 # git@github.com:zsh-users/zsh-history-substring-search.git     Searches history using typed text
 # git://github.com/zsh-users/zsh-syntax-highlighting.git        Highlights terminal commands
 
-plugins=(osx git git-flow git-extras github ruby rvm rails sublime wd bundler cap docker docker-compose gem node npm bower gradle brew grunt zsh-syntax-highlighting brew zsh-history-substring-search gulp)
+plugins=(osx git git-flow git-extras github ruby rails wd bundler docker docker-compose gem node npm brew zsh-syntax-highlighting zsh-history-substring-search kubectl yarn systemd rake-fast jsontools)
 
 source $ZSH/oh-my-zsh.sh
 
