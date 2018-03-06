@@ -1,31 +1,26 @@
 " Vundle
-set nocompatible              " be iMproved, required
+set nocompatible
 call plug#begin('~/.vim/plugged')
 
 " Misc Plugs
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'delimitMate.vim'                " Insert mode auto-completion for quotes, parens, brackets, etc.
-Plug 'Yggdroot/indentLine'            " Indent guides
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'ap/vim-css-color'
 Plug 'terryma/vim-expand-region'      " use +/_ to expand/contract visual selection region
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'justinmk/vim-sneak'
 Plug 'pbrisbin/vim-mkdir'             " Automatically create any non-existent directories before writing the buffer.
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
 
 " Syntax Plugs
-Plug 'SyntaxComplete'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-cucumber'
@@ -38,18 +33,26 @@ Plug 'StanAngeloff/php.vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'myhere/vim-nodejs-complete'
-Plug 'nginx.vim'
 Plug 'tpope/vim-git'
 Plug 'posva/vim-vue'
 
 " Color Schemes
-Plug 'jwkicklighter/vim-schemes'
 Plug 'rakr/vim-one'
 
 " Git Plugs
 Plug 'tpope/vim-fugitive'
 
 " Disabled Plugs
+"Plug 'SyntaxComplete'
+"Plug 'jwkicklighter/vim-schemes'
+"Plug 'nginx.vim'
+"Plug 'jistr/vim-nerdtree-tabs'
+"Plug 'scrooloose/syntastic'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'junegunn/fzf.vim'
+"Plug 'justinmk/vim-sneak'
+"Plug 'Yggdroot/indentLine'            " Indent guides
 "Plug 'pangloss/vim-javascript'
 "Plug 'MarcWeber/vim-addon-mw-utils'
 "Plug 'tomtom/tlib_vim'
@@ -70,13 +73,16 @@ Plug 'tpope/vim-fugitive'
 "Plug 'eagletmt/ghcmod-vim'
 "Plug 'ahw/vim-hooks'
 "Plug 'majutsushi/tagbar'
-Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'shawncplus/phpcomplete.vim'
 "Plug 'Lokaltog/vim-powerline'
 "Plug 'myusuf3/numbers.vim'
 
-call plug#end()            " required
-filetype plugin indent on    " required
+call plug#end()
+filetype plugin indent on
+
+" Don't store swapfiles in the project directory
+"set backupdir=$TEMP//
+"set directory=$TEMP//
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -102,12 +108,12 @@ else
   let s:keyplatform = "windows"
 endif
 
-if has("autocmd") && exists("+omnifunc")
-  autocmd Filetype *
-        \	if &omnifunc == "" |
-        \		setlocal omnifunc=syntaxcomplete#Complete |
-        \	endif
-endif
+"if has("autocmd") && exists("+omnifunc")
+  "autocmd Filetype *
+        "\	if &omnifunc == "" |
+        "\		setlocal omnifunc=syntaxcomplete#Complete |
+        "\	endif
+"endif
 
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -140,7 +146,7 @@ set softtabstop=2
 set expandtab
 set autoindent
 set smartindent
-set gfn=Hack:h11
+set gfn=LigaHack:h14
 set linespace=2                  " Adds space in between lines
 set conceallevel=0               " Do not hide any quotes
 set nofoldenable                 " disable folding
@@ -154,7 +160,7 @@ set showmatch                    " Highlight matching brackets
 set incsearch
 set ignorecase                   " Ignore case for searches by default
 set smartcase
-set scrolloff=0                  " Cause cursor to stay in middle of screen
+"set scrolloff=999               " Cause cursor to stay in middle of screen
 set clipboard=unnamed            " Use system keyboard
 set hidden                       " Required by ctrlspace
 set splitbelow                   " Open new splits below the current buffer
@@ -210,8 +216,16 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 nmap <Space> :
 vmap <Space> :
 
+let mapleader = ","
+let maplocalleader = ","
+
+" FZF things
+"nmap ; :Buffers<CR>
+"nmap <Leader>r :Tags<CR>
+"nmap <Leader>t :Files<CR>
+"nmap <Leader>a :Ag<CR>
+
 imap jk <Esc>
-"vmap jk <Esc>
 nmap - ^
 nmap _ $
 
@@ -221,16 +235,19 @@ map <C-}> <C-W>}
 " Use Ctrl+<key> shortcuts for buffers
 nmap <C-S-tab> :bprev<cr>
 nmap <C-tab> :bnext<cr>
+nmap <C-q> :bdelete<cr>
 vmap <C-S-tab> :bprev<cr>
 vmap <C-tab> :bnext<cr>
+nmap <C-q> :bdelete<cr>
 imap <C-S-tab> <C-o>:bprev<cr>
 imap <C-tab> <C-o>:bnext<cr>
+nmap <C-q> :bdelete<cr>
 
 " Close current buffer without killing split
-command Q bp|bw#
+"command Q bp|bw#
 
 " Close last buffer (:q last)
-command QL bw#
+"command QL bw#
 
 " Bettor split navigation
 map <C-j> <C-W>j
@@ -245,80 +262,79 @@ map <C-l> <C-W>l
   "map <C-A> :CtrlSpace<cr>
 "endif
 
-" Open CtrlP with CMD+Shift+O, like IntelliJ
-if s:keyplatform == "mac"
-  map <D-O> <C-p>
-  nmap <D-C> :CtrlPClearCache<cr>
-else
-  map <C-O> <C-p>
-  nmap <C-C> :CtrlPClearCache<cr>
-endif
-
-" Open :Ag with CMD+Shift+F
-if s:keyplatform == "mac"
-  nmap <D-F> :Ag 
-  vmap <D-F> :Ag 
-  imap <D-F> <esc>:Ag 
-else
-  nmap <C-F> :Ag 
-  vmap <C-F> :Ag 
-  imap <C-F> <esc>:Ag 
-endif
-
 " Rebuild tags with \b
 nnoremap <Leader>b :execute '!ctags -R'<cr>
 
 " Open Syntastic error window
-nnoremap <Leader>e :Errors<cr>
-
-" Duplicate line with CMD+D, like IntelliJ
-if s:keyplatform == "mac"
-  map <D-d> :t.<cr>
-else
-  map <C-d> :t.<cr>
-endif
+"nnoremap <Leader>e :Errors<cr>
 
 imap <C-Space> <C-x><C-o>
 
-" Open NERDTree with CMD+\ or CTRL+\
-if s:keyplatform == "mac"
-  map <D-\> :NERDTreeTabsToggle<cr>
-else
-  map <C-\> :NERDTreeTabsToggle<cr>
-endif
-
-" CMD+/ to toggle line comments
-" Requires nerdcommenter plugin
+" Platform-specific keybindings
 if (s:keyplatform == "mac" && has("gui_running"))
-  map <D-/> \c<Space>
+  " Open NERDTree with CMD+\
+  map <D-\> :NERDTreeToggle<cr>
+
+  " Duplicate line with CMD+D, like IntelliJ
+  map <D-d> :t.<cr>
+
+  "CMD+SHIFT+F for find in project
+  nmap <D-F> :Ag 
+  vmap <D-F> :Ag 
+  imap <D-F> <esc>:Ag 
+
+  " Open CtrlP with CMD+Shift+O, like IntelliJ
+  map <D-O> <C-p>
+  nmap <D-C> :CtrlPClearCache<cr>
+
+  " CMD+/ to toggle line comments
+  " Requires nerdcommenter plugin
+  map <D-/> ,c<Space>
 else
-  map <C-_> \c<Space>
+  " Open NERDTree with CTRL+\
+  map <C-\> :NERDTreeToggle<cr>
+
+  " Duplicate line with CTRL+D, like IntelliJ
+  map <C-d> :t.<cr>
+
+  "CTRL+SHIFT+F for find in project
+  nmap <C-F> :Ag 
+  vmap <C-F> :Ag 
+  imap <C-F> <esc>:Ag 
+
+  " Open CtrlP with CTRL+Shift+O, like IntelliJ
+  map <C-O> <C-p>
+  nmap <C-C> :CtrlPClearCache<cr>
+
+  " CTRL+/ to toggle line comments
+  " Requires nerdcommenter plugin
+  map <C-/> ,c<Space>
 endif
 
 " CMD+k/CMD+j to move lines up/down
-if s:keyplatform == "mac"
-  nnoremap <D-J> :m .+1<CR>==
-  nnoremap <D-K> :m .-2<CR>==
-  inoremap <D-J> <Esc>:m .+1<CR>==gi
-  inoremap <D-K> <Esc>:m .-2<CR>==gi
-  vnoremap <D-J> :m '>+1<CR>gv=gv
-  vnoremap <D-K> :m '<-2<CR>gv=gv
-else
-  nnoremap <C-J> :m .+1<CR>==
-  nnoremap <C-K> :m .-2<CR>==
-  inoremap <C-J> <Esc>:m .+1<CR>==gi
-  inoremap <C-K> <Esc>:m .-2<CR>==gi
-  vnoremap <C-J> :m '>+1<CR>gv=gv
-  vnoremap <C-K> :m '<-2<CR>gv=gv
-endif
+"if s:keyplatform == "mac"
+  "nnoremap <D-J> :m .+1<CR>==
+  "nnoremap <D-K> :m .-2<CR>==
+  "inoremap <D-J> <Esc>:m .+1<CR>==gi
+  "inoremap <D-K> <Esc>:m .-2<CR>==gi
+  "vnoremap <D-J> :m '>+1<CR>gv=gv
+  "vnoremap <D-K> :m '<-2<CR>gv=gv
+"else
+  "nnoremap <C-J> :m .+1<CR>==
+  "nnoremap <C-K> :m .-2<CR>==
+  "inoremap <C-J> <Esc>:m .+1<CR>==gi
+  "inoremap <C-K> <Esc>:m .-2<CR>==gi
+  "vnoremap <C-J> :m '>+1<CR>gv=gv
+  "vnoremap <C-K> :m '<-2<CR>gv=gv
+"endif
 
 " CMD+e to expand emmet snippet
 " Requires emmet plugin
-if s:keyplatform == "mac"
-  imap <D-E> <C-y>,
-else
-  imap <C-E> <C-y>,
-endif
+"if s:keyplatform == "mac"
+  "imap <D-E> <C-y>,
+"else
+  "imap <C-E> <C-y>,
+"endif
 
 " \zz to toggle keeping cursor in middle of screen
 :nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
