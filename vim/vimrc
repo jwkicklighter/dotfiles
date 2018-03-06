@@ -10,7 +10,7 @@ Plug 'Shougo/vimproc.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'delimitMate.vim'                " Insert mode auto-completion for quotes, parens, brackets, etc.
+" Plug 'delimitMate.vim'                " Insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'ap/vim-css-color'
