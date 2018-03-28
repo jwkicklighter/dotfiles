@@ -143,7 +143,7 @@ export PATH=$PATH:"$HOME/.cargo/bin"
 
 # Load NVM
 # NEEDS TO BE AFTER SYSTEM NODE IN $PATH
-. "/usr/local/opt/nvm/nvm.sh"
+if [ -f '/usr/local/opt/nvm/nvm.sh' ]; then . '/usr/local/opt/nvm/nvm.sh'; fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jordan/dev/python/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jordan/dev/python/google-cloud-sdk/path.zsh.inc'; fi
