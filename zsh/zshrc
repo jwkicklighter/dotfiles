@@ -125,6 +125,9 @@ alias dpsa='docker ps -a'
 alias drm='docker rm'
 alias drma='docker rm $(docker ps -aq)'
 
+# GCP
+alias fn='functions-emulator'
+
 # ALL the bins!
 export PATH="$HOME/sbin":$PATH
 export PATH="/usr/local/bin":$PATH
@@ -213,3 +216,10 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/jordan/.nvm/versions/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jordan/.nvm/versions/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/jordan/.nvm/versions/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jordan/.nvm/versions/node/v8.9.4/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
