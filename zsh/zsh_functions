@@ -42,25 +42,83 @@ convert-to-mp3() {
 }
 
 tunnel-gcp() {
-  if [ "$1" != "dk_prod" ] && [ "$1" != "dk_qa" ]; then
+  if [ "$1" != "dk_prod" ] && [ "$1" != "dk_staging" ] && [ "$1" != "dk_qa" ]; then
     echo "Argument is invalid" >&2
     return 1
   fi
 
+  socket_dir="$HOME/.ssh/sockets"
+  socket_filename="db_socket_$1"
+  socket_file="$socket_dir/$socket_filename"
+
+  # Make sure the tunnel isn't already open by checking for the tmp file
+  if [ -f "$socket_file" ]; then
+    echo "Tunnel is already open, call close-tunnel-gcp $1 to close it"
+    return 1
+  fi
+
+  # Create the tmp file directory if not exists
+  mkdir -p $socket_dir
+
+  # Set connection variables for the tunnel
   if [[ "$1" == "dk_prod" ]]; then
     db_addr=${DK_PROD_DB}
     ssh_addr=${DK_PROD_IP}
-    echo "Tunneling Production DB on port 54321 through ${ssh_addr}"
+    tunnel_port=54321
+    key_file=$HOME/.ssh/google_compute_engine
+
+    echo "Tunneling Production DB on port ${tunnel_port} through ${ssh_addr}"
+  elif [[ "$1" == "dk_staging" ]]; then
+    db_addr=${DK_STAGING_DB}
+    ssh_addr=${DK_STAGING_IP}
+    tunnel_port=54322
+    key_file=$HOME/.ssh/google_compute_engine
+
+    echo "Tunneling Staging DB on port ${tunnel_port} through ${ssh_addr}"
   elif [[ "$1" == "dk_qa" ]]; then
     db_addr=${DK_QA_DB}
     ssh_addr=${DK_QA_IP}
-    echo "Tunneling QA DB on port 54321 through ${ssh_addr}"
+    tunnel_port=54323
+    key_file=$HOME/.ssh/google_compute_engine
+
+    echo "Tunneling QA DB on port ${tunnel_port} through ${ssh_addr}"
   fi
 
-  echo ""
-  ssh -L 54321:$db_addr $ssh_addr -i $HOME/.ssh/google_compute_engine
+  ssh -M -S $socket_file -fnNT -L $tunnel_port:$db_addr $ssh_addr -i $key_file
+
   unset db_addr
   unset ssh_addr
+  unset tunnel_port
+  unset key_file
+  unset socket_dir
+  unset socket_filename
+  unset socket_file
+}
+
+close-tunnel-gcp() {
+  if [ "$1" != "all" ] && [ "$1" != "dk_prod" ] && [ "$1" != "dk_staging" ] && [ "$1" != "dk_qa" ]; then
+    echo "Argument is invalid" >&2
+    return 1
+  fi
+
+  socket_dir="$HOME/.ssh/sockets"
+
+  if [ "$1" == "all" ]; then
+    for filename in $(ls $socket_dir); do
+      socket_file="$socket_dir/$filename"
+      echo "Closing $filename"
+      ssh -S $socket_file -O exit 0
+    done
+  else
+    socket_filename="db_socket_$1"
+    socket_file="$socket_dir/$socket_filename"
+
+    ssh -S $socket_file -O exit 0
+  fi
+
+  unset socket_dir
+  unset socket_filename
+  unset socket_file
 }
 
 # Executes the provided command in the first pod matching the given search term.
