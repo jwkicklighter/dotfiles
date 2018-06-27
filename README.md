@@ -9,6 +9,14 @@ This is my collection of dotfiles and configurations.
 3. Your laptop becomes sentient and enslaves the human race.
 4. These scripts don't quite work right.
 
+## Setting Default Editor on MacOS
+
+Since there is no easy way to set a default editor on MacOS for every type of textfile at once, I found a utility called `duti` to change them for you. The problem is that `duti` only sets one filetype at a time, and you need to remember the package name of the editor to use. So `change-mac-editor.sh` takes care of that by setting a bunch of filetypes to whichever editor you choose from the options.
+
+![change-mac-editor.sh usage screenshot](/images/change-editor-screenshot.png)
+
+**NOTE** This is probably the only script that I will accept pull requests on. Feel free to add more filetypes, editors, or options.
+
 ## NEW INSTALL METHOD
 
 Install `zsh` if you have not done so. (`brew install zsh` on Mac, `sudo apt-get install zsh` on Ubuntu, `pacman -Syu zsh` on Arch)
