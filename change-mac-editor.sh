@@ -38,6 +38,6 @@ select opt in ${editors[@]}; do
 done
 
 for extension in "${extensions[@]}"; do
-  echo "duti -s $vscodeinsiders $extension"
+  echo "duti -s $editor $extension"
   duti -s $editor $extension all
 done
