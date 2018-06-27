@@ -9,14 +9,18 @@ vscode=com.microsoft.VSCode
 atom=com.github.atom
 sublime2=com.sublimetext.2
 sublime3=com.sublimetext.3
+macvim=org.vim.MacVim
 
-editors=("Atom" "SublimeText2" "SublimeText3" "VisualStudioCode" "VisualStudioCodeInsiders")
+editors=("Atom" "MacVim" "SublimeText2" "SublimeText3" "VisualStudioCode" "VisualStudioCodeInsiders")
 
 echo "Which editor would you like to be default?"
 
 select opt in ${editors[@]}; do
   if [ "$opt" = "Atom" ]; then
     editor=$atom
+    break
+  elif [ "$opt" = "MacVim" ]; then
+    editor=$macvim
     break
   elif [ "$opt" = "SublimeText2" ]; then
     editor=$sublime2
