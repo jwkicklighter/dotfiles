@@ -15,5 +15,9 @@ rm $OMZ_FILE
 mkdir -p $HOME/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
+# Download powerlevel10k zsh theme
+mkdir -p $HOME/.oh-my-zsh/custom/themes
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+
 # Link dotfiles
 $SCRIPT_DIR/link-dotfiles.sh
