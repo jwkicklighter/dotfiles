@@ -1,8 +1,0 @@
-kwmc config space 0 1 mode bsp
-kwmc config space 0 1 name main
-
-kwmc config space 0 2 mode monocle
-kwmc config space 0 2 name web
-
-kwmc config space 0 3 mode bsp
-kwmc config space 0 3 name chat

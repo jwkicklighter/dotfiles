@@ -5,7 +5,7 @@ RED='\033[0;31m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
-DIRECTORIES=(vim zsh intellij x11 xmonad git khd kwm pry)
+DIRECTORIES=(vim zsh x11 git pry)
 
 usage() {
   echo "Usage: [-ah]"
