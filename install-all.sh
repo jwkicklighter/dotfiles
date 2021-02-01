@@ -11,16 +11,9 @@ chmod +x $OMZ_FILE
 eval $OMZ_FILE
 rm $OMZ_FILE
 
-# Link powerline theme
-$SCRIPT_DIR/link-powerline.sh
-
 # Download oh-my-zsh plugins
 mkdir -p $HOME/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-
-# Install Vundle
-mkdir -p $HOME/.vim/bundle/Vundle.vim
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
 # Link dotfiles
 $SCRIPT_DIR/link-dotfiles.sh
