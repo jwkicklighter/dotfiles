@@ -162,22 +162,6 @@ if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/completion.zsh
 fi
 
-# SPACESHIP THEME CUSTOMIZATION
-SPACESHIP_PROMPT_ORDER=(
-  time
-  user
-  host
-  dir
-  git
-  venv
-  kubecontext
-  exec_time
-  line_sep
-  jobs
-  exit_code
-  char
-)
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # tabtab source for serverless package
