@@ -1,0 +1,13 @@
+#! /bin/bash
+#
+# Executes the provided command in the first pod matching the given search term.
+# Multiple words must be quoted.
+#
+# e.g. `kube_exec rails-web bash` or `kube_exec debug "rails c"`
+exec_pod=`kubectl get pods --field-selector 'status.phase!=Failed' | grep ${1} | cut -d" " -f 1 | head -1`
+echo "Executing ${3} in ${2} withinin ${exec_pod} at `kubectl config view -o=jsonpath='{.current-context}'`"
+echo ""
+
+kubectl exec $exec_pod -c $2 -it "${@:3}"
+unset exec_pod
+

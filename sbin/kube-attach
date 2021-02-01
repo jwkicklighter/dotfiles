@@ -1,0 +1,14 @@
+#! /bin/bash
+#
+# Attaches to the first pod matching the given search term.
+#
+# e.g. `kube_attach rails-web bash` or `kube_attach debug "rails c"`
+kube_attach() {
+  exec_pod=`kubectl get pods --field-selector 'status.phase!=Failed' | grep ${1} | cut -d" " -f 1 | head -1`
+  echo "Attaching to ${2} in ${exec_pod} at `kubectl config view -o=jsonpath='{.current-context}'`"
+  echo ""
+
+  kubectl attach pod/$exec_pod -c $2 -it
+  unset exec_pod
+}
+

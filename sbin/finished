@@ -1,0 +1,27 @@
+#! /bin/bash
+#
+# Sends a push notification to Pushover when a script finished.
+#
+# e.g. `long_running_command && finished 'My command'`
+#      will send the message "My command has finished running" to your
+#      Pushover devices.
+#
+# Requires PUSHOVER_APP_TOKEN and PUSHOVER_USER_KEY to be set.
+#
+# For more information about Pushover, visit http://pushover.net
+
+if [ -z "$PUSHOVER_APP_TOKEN" ]; then
+  echo "PUSHOVER_APP_TOKEN not set."
+  return 1
+elif [ -z "$PUSHOVER_USER_KEY" ]; then
+  echo "PUSHOVER_USER_KEY not set."
+  return 1
+fi
+
+if [ -z "$@" ] || [ "$@" == "" ]; then
+  script="The script"
+else
+  script=$@
+fi
+
+pushover -T $PUSHOVER_APP_TOKEN -u $PUSHOVER_USER_KEY -t "Script Complete" "$script has finished running"

@@ -1,0 +1,6 @@
+#! /bin/bash
+#
+# Move backward one commit in git history toward a specific ref.
+# Usage: gofwd v1.2.7
+
+git checkout `git rev-list --topo-order HEAD.."$*" | tail -1`

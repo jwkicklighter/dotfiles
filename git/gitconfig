@@ -1,17 +1,17 @@
 [core]
 	excludesfile = /Users/jordan/.gitignore_global
-	editor = vim
-[diff]
-  external = code -w --diff
+	editor = code --wait
+# [diff]
+#   external = code -w --diff
 [merge]
-  tool = code
+	tool = code
 [mergetool "code"]
-  cmd = code -w --diff "$MERGED"
+	cmd = code -w --diff $MERGED
 [user]
 	name = Jordan Kicklighter
 	email = jwkicklighter@gmail.com
 [push]
-	default = simple
+	default = current
 [github]
 	user = jwkicklighter
 [remote "origin"]
@@ -20,3 +20,18 @@
 	templatedir = ~/.git_template
 [commit]
 	template = /Users/jordan/.stCommitMsg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	done = "!f() { git checkout master && git branch -d @{-1}; }; f"
+[pull]
+	rebase = false

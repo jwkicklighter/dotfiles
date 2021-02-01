@@ -1,0 +1,28 @@
+#! /bin/bash
+#
+# Closes a tunnel to Google Cloud Platform that was opened with tunnel_gcp
+
+if [ "$1" != "all" ] && [ "$1" != "dk_prod" ] && [ "$1" != "dk_staging" ] && [ "$1" != "dk_qa" ]; then
+  echo "Argument is invalid" >&2
+  return 1
+fi
+
+socket_dir="$HOME/.ssh/sockets"
+
+if [ "$1" == "all" ]; then
+  for filename in $(ls $socket_dir); do
+    socket_file="$socket_dir/$filename"
+    echo "Closing $filename"
+    ssh -S $socket_file -O exit 0
+  done
+else
+  socket_filename="db_socket_$1"
+  socket_file="$socket_dir/$socket_filename"
+
+  ssh -S $socket_file -O exit 0
+fi
+
+unset socket_dir
+unset socket_filename
+unset socket_file
+

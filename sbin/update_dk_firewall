@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Updates the GCP firewall rules for DK to my current IP
+
+qa_rule=jordan-home-dk-qa-bastion
+prod_rule=jordan-home-dk-prod-bastion
+
+current_ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+ip_range=$current_ip/32
+
+echo "Updating QA Firewall to $ip_range"
+
+gcloud compute firewall-rules update $qa_rule --source-ranges=$ip_range
+echo
+gcloud compute firewall-rules describe $qa_rule
+
+echo
+echo "Updating Production Firewall to $ip_range"
+
+gcloud compute firewall-rules update $prod_rule --source-ranges=$ip_range
+echo
+gcloud compute firewall-rules describe $prod_rule
+
+unset qa_rule
+unset prod_rule
+unset current_ip
+unset ip_range

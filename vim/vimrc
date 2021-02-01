@@ -3,44 +3,44 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 " Misc Plugs
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-startify'
 Plug 'rking/ag.vim'
-Plug 'Shougo/vimproc.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
-" Plug 'delimitMate.vim'                " Insert mode auto-completion for quotes, parens, brackets, etc.
+" Plug 'Shougo/vimproc.vim'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'scrooloose/nerdtree'
+" Plug 'terryma/vim-multiple-cursors'
+Plug 'Raimondi/delimitMate.vim'                " Insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'ap/vim-css-color'
-Plug 'terryma/vim-expand-region'      " use +/_ to expand/contract visual selection region
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'pbrisbin/vim-mkdir'             " Automatically create any non-existent directories before writing the buffer.
+" Plug 'ap/vim-css-color'
+" Plug 'terryma/vim-expand-region'      " use +/_ to expand/contract visual selection region
+" Plug 'michaeljsmith/vim-indent-object'
+" Plug 'pbrisbin/vim-mkdir'             " Automatically create any non-existent directories before writing the buffer.
 Plug 'vim-airline/vim-airline'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 " Syntax Plugs
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-cucumber'
+" Plug 'tpope/vim-rails'
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-endwise'
-Plug 'godlygeek/tabular'              " Needed for vim-markdown
-Plug 'plasticboy/vim-markdown'
-Plug 'kchmck/vim-coffee-script'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'StanAngeloff/php.vim'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'myhere/vim-nodejs-complete'
-Plug 'tpope/vim-git'
-Plug 'posva/vim-vue'
+" Plug 'godlygeek/tabular'              " Needed for vim-markdown
+" Plug 'plasticboy/vim-markdown'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'cakebaker/scss-syntax.vim'
+" Plug 'StanAngeloff/php.vim'
+" Plug 'jelera/vim-javascript-syntax'
+" Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'myhere/vim-nodejs-complete'
+" Plug 'tpope/vim-git'
+" Plug 'posva/vim-vue'
 
 " Color Schemes
 Plug 'rakr/vim-one'
 
 " Git Plugs
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " Disabled Plugs
 "Plug 'SyntaxComplete'
@@ -161,7 +161,7 @@ set incsearch
 set ignorecase                   " Ignore case for searches by default
 set smartcase
 "set scrolloff=999               " Cause cursor to stay in middle of screen
-set clipboard=unnamed            " Use system keyboard
+"set clipboard=unnamed            " Use system keyboard
 set hidden                       " Required by ctrlspace
 set splitbelow                   " Open new splits below the current buffer
 set splitright                   " Open new splits to the right of the current buffer
@@ -169,27 +169,27 @@ set splitright                   " Open new splits to the right of the current b
 set backspace=indent,eol,start   " Fix backspace not deleting tabs, also make delimiteMate work
 
 " CtrlSpace
-if has("gui_running")
-  let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
-endif
-let g:CtrlSpaceSearchTiming = 0
-hi CtrlSpaceSelected term=reverse ctermfg=187 ctermbg=23 cterm=bold
-hi CtrlSpaceNormal term=NONE ctermfg=244 ctermbg=232 cterm=NONE
-hi CtrlSpaceFound ctermfg=220 ctermbg=NONE cterm=bold
+"if has("gui_running")
+  "let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+"endif
+"let g:CtrlSpaceSearchTiming = 0
+"hi CtrlSpaceSelected term=reverse ctermfg=187 ctermbg=23 cterm=bold
+"hi CtrlSpaceNormal term=NONE ctermfg=244 ctermbg=232 cterm=NONE
+"hi CtrlSpaceFound ctermfg=220 ctermbg=NONE cterm=bold
 
 " Some plugin setting
-let g:ctrlp_show_hidden=1
-let g:ctrlp_working_path_mode="rw"
+"let g:ctrlp_show_hidden=1
+"let g:ctrlp_working_path_mode="rw"
 let delimitMate_expand_cr = 1
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:vim_markdown_folding_disabled = 1
 
 " Syntastic checkers
-let g:syntastic_ruby_checkers=['rubocop', 'reek']
-let g:syntastic_haml_checkers=['haml']
-let g:syntastic_scss_checkers=['scss_lint']
+"let g:syntastic_ruby_checkers=['rubocop', 'reek']
+"let g:syntastic_haml_checkers=['haml']
+"let g:syntastic_scss_checkers=['scss_lint']
 
 " Auto-focus Tagbar when opened
 "let g:tagbar_autofocus = 1
@@ -203,18 +203,18 @@ let g:indentLine_char = '|'
 let g:indentLine_enabled = 1
 
 " Gist Settings
-let g:gist_detect_filetype = 1          " Detect for gists filetype automatically
-let g:gist_open_browser_after_post = 1  " Open browser after creating gist
-let g:gist_show_privates = 1            " Let :Gist -l show private gists
-let g:gist_post_private = 1             " Set gists as private by default
+"let g:gist_detect_filetype = 1          " Detect for gists filetype automatically
+"let g:gist_open_browser_after_post = 1  " Open browser after creating gist
+"let g:gist_show_privates = 1            " Let :Gist -l show private gists
+"let g:gist_post_private = 1             " Set gists as private by default
 
 " NERDTree/NERDTreeTabs
-let g:nerdtree_tabs_open_on_gui_startup = 0
+"let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " CUSTOM KEYBINDINGS
 " Use <Space> to open prompt
-nmap <Space> :
-vmap <Space> :
+nnoremap <Space> :
+vnoremap <Space> :
 
 let mapleader = ","
 let maplocalleader = ","
@@ -225,23 +225,27 @@ let maplocalleader = ","
 "nmap <Leader>t :Files<CR>
 "nmap <Leader>a :Ag<CR>
 
-imap jk <Esc>
-nmap - ^
-nmap _ $
+"imap jk <Esc>
+noremap - ^
+noremap _ $
+nnoremap , "+
+vnoremap , "+
+nnoremap Q @q
+
 
 " Use Ctrl+[ to preview tag
-map <C-}> <C-W>}
+"map <C-}> <C-W>}
 
 " Use Ctrl+<key> shortcuts for buffers
-nmap <C-S-tab> :bprev<cr>
-nmap <C-tab> :bnext<cr>
-nmap <C-q> :bdelete<cr>
-vmap <C-S-tab> :bprev<cr>
-vmap <C-tab> :bnext<cr>
-nmap <C-q> :bdelete<cr>
-imap <C-S-tab> <C-o>:bprev<cr>
-imap <C-tab> <C-o>:bnext<cr>
-nmap <C-q> :bdelete<cr>
+"nmap <C-S-tab> :bprev<cr>
+"nmap <C-tab> :bnext<cr>
+"nmap <C-q> :bdelete<cr>
+"vmap <C-S-tab> :bprev<cr>
+"vmap <C-tab> :bnext<cr>
+"nmap <C-q> :bdelete<cr>
+"imap <C-S-tab> <C-o>:bprev<cr>
+"imap <C-tab> <C-o>:bnext<cr>
+"nmap <C-q> :bdelete<cr>
 
 " Close current buffer without killing split
 "command Q bp|bw#
@@ -250,10 +254,10 @@ nmap <C-q> :bdelete<cr>
 "command QL bw#
 
 " Bettor split navigation
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
 
 " Open CtrlSpace with CMD+Shift+A
 "if s:keyplatform == "mac"
@@ -263,20 +267,20 @@ map <C-l> <C-W>l
 "endif
 
 " Rebuild tags with \b
-nnoremap <Leader>b :execute '!ctags -R'<cr>
+"nnoremap <Leader>b :execute '!ctags -R'<cr>
 
 " Open Syntastic error window
 "nnoremap <Leader>e :Errors<cr>
 
-imap <C-Space> <C-x><C-o>
+"imap <C-Space> <C-x><C-o>
 
 " Platform-specific keybindings
 if (s:keyplatform == "mac" && has("gui_running"))
   " Open NERDTree with CMD+\
-  map <D-\> :NERDTreeToggle<cr>
+  "map <D-\> :NERDTreeToggle<cr>
 
   " Duplicate line with CMD+D, like IntelliJ
-  map <D-d> :t.<cr>
+  "map <D-d> :t.<cr>
 
   "CMD+SHIFT+F for find in project
   nmap <D-F> :Ag 
@@ -284,18 +288,18 @@ if (s:keyplatform == "mac" && has("gui_running"))
   imap <D-F> <esc>:Ag 
 
   " Open CtrlP with CMD+Shift+O, like IntelliJ
-  map <D-O> <C-p>
-  nmap <D-C> :CtrlPClearCache<cr>
+  "map <D-O> <C-p>
+  "nmap <D-C> :CtrlPClearCache<cr>
 
   " CMD+/ to toggle line comments
   " Requires nerdcommenter plugin
-  map <D-/> ,c<Space>
+  "map <D-/> ,c<Space>
 else
   " Open NERDTree with CTRL+\
-  map <C-\> :NERDTreeToggle<cr>
+  "map <C-\> :NERDTreeToggle<cr>
 
   " Duplicate line with CTRL+D, like IntelliJ
-  map <C-d> :t.<cr>
+  "map <C-d> :t.<cr>
 
   "CTRL+SHIFT+F for find in project
   nmap <C-F> :Ag 
@@ -303,12 +307,12 @@ else
   imap <C-F> <esc>:Ag 
 
   " Open CtrlP with CTRL+Shift+O, like IntelliJ
-  map <C-O> <C-p>
-  nmap <C-C> :CtrlPClearCache<cr>
+  "map <C-O> <C-p>
+  "nmap <C-C> :CtrlPClearCache<cr>
 
   " CTRL+/ to toggle line comments
   " Requires nerdcommenter plugin
-  map <C-/> ,c<Space>
+  "map <C-/> ,c<Space>
 endif
 
 " CMD+k/CMD+j to move lines up/down
@@ -338,3 +342,9 @@ endif
 
 " \zz to toggle keeping cursor in middle of screen
 :nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
+
+augroup WrapLineInTxtFile
+  autocmd!
+  autocmd FileType txt setlocal wrap
+  autocmd FileType txt setlocal linebreak
+augroup END

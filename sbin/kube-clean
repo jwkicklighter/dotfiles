@@ -1,0 +1,6 @@
+#! /bin/bash
+#
+# Removes all failed pods from the current cluster.
+
+kubectl get pods --all-namespaces --field-selector 'status.phase==Failed' -o json | kubectl delete -f -
+

@@ -1,0 +1,5 @@
+#! /bin/bash
+#
+# Move forward one commit in git history.
+
+git checkout HEAD~
